@@ -49,6 +49,7 @@ TerminalDock::TerminalDock(VexaraCore::TerminalSettings& settings, QWidget* pare
 
     rebuildProfileMenu();
 
+    // On Windows, picking from the dropdown fires activated, not always currentIndexChanged.
     connect(profileCombo_, QOverload<int>::of(&QComboBox::activated), this,
             &TerminalDock::onProfileSelected);
     connect(newButton_, &QToolButton::clicked, this, [this]() {
@@ -83,7 +84,7 @@ void TerminalDock::refreshProfileSelector()
     suppressProfileSignal_ = true;
     profileCombo_->clear();
 
-    const QVector<VexaraCore::TerminalProfile> profiles = settings_.profiles();
+    const QVector<VexaraCore::TerminalProfile> profiles = settings_.runnableProfiles();
     int selectIndex = 0;
     for (int i = 0; i < profiles.size(); ++i) {
         const VexaraCore::TerminalProfile& profile = profiles[i];
@@ -122,7 +123,7 @@ void TerminalDock::rebuildProfileMenu()
     });
     menu->addSeparator();
 
-    const QVector<VexaraCore::TerminalProfile> profiles = settings_.profiles();
+    const QVector<VexaraCore::TerminalProfile> profiles = settings_.runnableProfiles();
     for (const VexaraCore::TerminalProfile& profile : profiles) {
         menu->addAction(profile.displayName, this, [this, id = profile.id]() {
             for (int i = 0; i < profileCombo_->count(); ++i) {
@@ -137,7 +138,7 @@ void TerminalDock::rebuildProfileMenu()
 
     menu->addSeparator();
     auto* defaultMenu = menu->addMenu(QStringLiteral("Set Default Shell"));
-    for (const VexaraCore::TerminalProfile& profile : profiles) {
+    for (const VexaraCore::TerminalProfile& profile : settings_.runnableProfiles()) {
         QAction* action = defaultMenu->addAction(profile.displayName);
         action->setCheckable(true);
         action->setChecked(profile.id == settings_.defaultProfileId);
@@ -151,12 +152,29 @@ void TerminalDock::rebuildProfileMenu()
 
 void TerminalDock::newTerminalWithProfile(const QString& profileId)
 {
-    if (!settings_.hasProfile(profileId)) {
+    VexaraCore::TerminalProfile profile;
+    for (const VexaraCore::TerminalProfile& candidate : settings_.runnableProfiles()) {
+        if (candidate.id == profileId) {
+            profile = candidate;
+            break;
+        }
+    }
+    if (profile.id.isEmpty() || profile.program.isEmpty()) {
         settings_.ensureDefaults();
         refreshProfileSelector();
         return;
     }
-    panel_->setProfile(settings_.profileById(profileId));
+
+    suppressProfileSignal_ = true;
+    for (int i = 0; i < profileCombo_->count(); ++i) {
+        if (profileCombo_->itemData(i).toString() == profileId) {
+            profileCombo_->setCurrentIndex(i);
+            break;
+        }
+    }
+    profileLabel_->setText(QStringLiteral("Shell: %1").arg(profile.displayName));
+    panel_->setProfile(profile);
+    suppressProfileSignal_ = false;
     panel_->restartShell();
 }
 

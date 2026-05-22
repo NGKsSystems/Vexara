@@ -73,6 +73,8 @@ private:
     QString lineBridgePrompt_;
     int lineBridgeReadOnlyEnd_ = 0;
     bool mouseSelecting_ = false;
+    bool scrollPinnedToBottom_ = true;
+    bool restartingShell_ = false;
 };
 
 } // namespace VexaraEditor

@@ -30,6 +30,10 @@ private:
     void openFolderDialog();
     void openFileDialog();
     void refreshWindowTitle();
+    void showEditorFind(bool focusReplace);
+    void hideEditorFind();
+    void showTreeFind();
+    void hideTreeFind();
 
     VexaraOrchestration::Orchestrator& orchestrator_;
     VexaraCore::GlobalSettings globalSettings_;
@@ -38,8 +42,10 @@ private:
     ProjectTreePanel* explorer_ = nullptr;
     DocumentWorkspace* workspace_ = nullptr;
     AgentsPanel* agentsPanel_ = nullptr;
-    FindBar* findBar_ = nullptr;
+    FindBar* editorFindBar_ = nullptr;
+    QWidget* editorFindStrip_ = nullptr;
     TerminalDock* terminalDockWidget_ = nullptr;
+    QDockWidget* explorerDock_ = nullptr;
     QDockWidget* terminalDock_ = nullptr;
 };
 

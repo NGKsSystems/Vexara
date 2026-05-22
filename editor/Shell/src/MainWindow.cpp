@@ -26,6 +26,7 @@
 #include <QToolBar>
 #include <QApplication>
 #include <QToolButton>
+#include <QVBoxLayout>
 
 #include "VexaraOrchestration/Orchestrator.h"
 
@@ -66,35 +67,41 @@ void MainWindow::buildUi()
     explorer_ = new ProjectTreePanel(this);
     workspace_ = new DocumentWorkspace(this);
     agentsPanel_ = new AgentsPanel(this);
-    findBar_ = new FindBar(this);
+    editorFindBar_ = new FindBar(this);
     terminalDockWidget_ = new TerminalDock(globalSettings_.terminal, this);
     agentsPanel_->bindOrchestrator(orchestrator_);
 
-    setCentralWidget(workspace_);
+    editorFindStrip_ = new QWidget(this);
+    editorFindStrip_->setVisible(false);
+    auto* editorFindLayout = new QVBoxLayout(editorFindStrip_);
+    editorFindLayout->setContentsMargins(0, 0, 0, 0);
+    editorFindLayout->setSpacing(0);
+    editorFindLayout->addWidget(editorFindBar_);
 
-    auto* explorerDock = new QDockWidget(QStringLiteral("Explorer"), this);
-    explorerDock->setObjectName(QStringLiteral("dock_project"));
-    explorerDock->setWidget(explorer_);
-    explorerDock->setMinimumWidth(360);
-    addDockWidget(Qt::LeftDockWidgetArea, explorerDock);
-    resizeDocks({explorerDock}, {400}, Qt::Horizontal);
+    auto* central = new QWidget(this);
+    auto* centralLayout = new QVBoxLayout(central);
+    centralLayout->setContentsMargins(0, 0, 0, 0);
+    centralLayout->setSpacing(0);
+    centralLayout->addWidget(editorFindStrip_);
+    centralLayout->addWidget(workspace_, 1);
+    setCentralWidget(central);
+
+    explorerDock_ = new QDockWidget(QStringLiteral("Explorer"), this);
+    explorerDock_->setObjectName(QStringLiteral("dock_project"));
+    explorerDock_->setWidget(explorer_);
+    explorerDock_->setMinimumWidth(280);
+    addDockWidget(Qt::LeftDockWidgetArea, explorerDock_);
+    resizeDocks({explorerDock_}, {360}, Qt::Horizontal);
 
     auto* agentsDock = new QDockWidget(QStringLiteral("Agents"), this);
     agentsDock->setObjectName(QStringLiteral("dock_agents"));
     agentsDock->setWidget(agentsPanel_);
     addDockWidget(Qt::RightDockWidgetArea, agentsDock);
 
-    auto* findDock = new QDockWidget(QStringLiteral("Find"), this);
-    findDock->setObjectName(QStringLiteral("dock_find"));
-    findDock->setWidget(findBar_);
-    addDockWidget(Qt::BottomDockWidgetArea, findDock);
-
     terminalDock_ = new QDockWidget(QStringLiteral("Terminal"), this);
     terminalDock_->setObjectName(QStringLiteral("dock_terminal"));
     terminalDock_->setWidget(terminalDockWidget_);
     addDockWidget(Qt::BottomDockWidgetArea, terminalDock_);
-    tabifyDockWidget(findDock, terminalDock_);
-    findDock->raise();
 
     auto* toolbar = addToolBar(QStringLiteral("Main"));
     toolbar->setMovable(false);
@@ -136,8 +143,12 @@ void MainWindow::buildMenuBar()
     QAction* selectAllAction = editMenu->addAction(QStringLiteral("Select &All"));
     selectAllAction->setShortcut(QKeySequence::SelectAll);
     editMenu->addSeparator();
-    QAction* findAction = editMenu->addAction(QStringLiteral("&Find"));
+    QAction* findAction = editMenu->addAction(QStringLiteral("&Find in Editor"));
     findAction->setShortcut(QKeySequence::Find);
+    QAction* findInTreeAction = editMenu->addAction(QStringLiteral("Find in &Files"));
+    findInTreeAction->setShortcut(QKeySequence(QStringLiteral("Ctrl+Shift+F")));
+    QAction* replaceAction = editMenu->addAction(QStringLiteral("&Replace"));
+    replaceAction->setShortcut(QKeySequence::Replace);
 
     QMenu* settingsMenu = menuBar()->addMenu(QStringLiteral("&Settings"));
     QAction* preferencesAction = settingsMenu->addAction(QStringLiteral("&Preferences..."));
@@ -185,7 +196,27 @@ void MainWindow::buildMenuBar()
     connect(selectAllAction, &QAction::triggered, this, []() { dispatchSelectAllToFocusWidget(); });
 
     connect(findAction, &QAction::triggered, this, [this]() {
-        findBar_->focusQuery();
+        if (editorFindStrip_->isVisible()) {
+            hideEditorFind();
+        } else {
+            showEditorFind(false);
+        }
+    });
+
+    connect(findInTreeAction, &QAction::triggered, this, [this]() {
+        if (explorer_->isFileFilterVisible()) {
+            hideTreeFind();
+        } else {
+            showTreeFind();
+        }
+    });
+
+    connect(replaceAction, &QAction::triggered, this, [this]() {
+        if (editorFindStrip_->isVisible()) {
+            hideEditorFind();
+        } else {
+            showEditorFind(true);
+        }
     });
 
     connect(terminalAction, &QAction::toggled, this, [this](bool visible) {
@@ -228,21 +259,74 @@ void MainWindow::wireSignals()
         }
     });
 
-    connect(findBar_, &FindBar::findNextRequested, this, [this]() {
-        if (workspace_->findInActiveDocument(findBar_->query(), true)) {
+    connect(editorFindBar_, &FindBar::findNextRequested, this, [this]() {
+        if (workspace_->findInActiveDocument(editorFindBar_->query(), true)) {
             statusBar()->showMessage(QStringLiteral("Match found"));
         } else {
             statusBar()->showMessage(QStringLiteral("No match found"));
         }
     });
 
-    connect(findBar_, &FindBar::findPreviousRequested, this, [this]() {
-        if (workspace_->findInActiveDocument(findBar_->query(), false)) {
+    connect(editorFindBar_, &FindBar::findPreviousRequested, this, [this]() {
+        if (workspace_->findInActiveDocument(editorFindBar_->query(), false)) {
             statusBar()->showMessage(QStringLiteral("Match found"));
         } else {
             statusBar()->showMessage(QStringLiteral("No match found"));
         }
     });
+
+    connect(editorFindBar_, &FindBar::replaceRequested, this, [this]() {
+        if (editorFindBar_->query().isEmpty()) {
+            statusBar()->showMessage(QStringLiteral("Enter text to find"));
+            return;
+        }
+        if (workspace_->replaceInActiveDocument(editorFindBar_->query(), editorFindBar_->replacement(), false)) {
+            statusBar()->showMessage(QStringLiteral("Replaced"));
+        } else {
+            statusBar()->showMessage(QStringLiteral("No match to replace"));
+        }
+    });
+
+    connect(editorFindBar_, &FindBar::replaceAllRequested, this, [this]() {
+        if (editorFindBar_->query().isEmpty()) {
+            statusBar()->showMessage(QStringLiteral("Enter text to find"));
+            return;
+        }
+        if (workspace_->replaceInActiveDocument(editorFindBar_->query(), editorFindBar_->replacement(), true)) {
+            statusBar()->showMessage(QStringLiteral("Replaced all matches"));
+        } else {
+            statusBar()->showMessage(QStringLiteral("No matches to replace"));
+        }
+    });
+}
+
+void MainWindow::showEditorFind(bool focusReplace)
+{
+    hideTreeFind();
+    editorFindStrip_->setVisible(true);
+    if (focusReplace) {
+        editorFindBar_->focusReplace();
+    } else {
+        editorFindBar_->focusQuery();
+    }
+}
+
+void MainWindow::hideEditorFind()
+{
+    editorFindStrip_->setVisible(false);
+}
+
+void MainWindow::showTreeFind()
+{
+    hideEditorFind();
+    explorerDock_->show();
+    explorerDock_->raise();
+    explorer_->showFileFilter();
+}
+
+void MainWindow::hideTreeFind()
+{
+    explorer_->hideFileFilter();
 }
 
 void MainWindow::openFolderDialog()

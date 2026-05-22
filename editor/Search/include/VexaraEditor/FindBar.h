@@ -14,16 +14,23 @@ public:
     explicit FindBar(QWidget* parent = nullptr);
 
     QString query() const;
+    QString replacement() const;
     void focusQuery();
+    void focusReplace();
 
 signals:
     void findNextRequested();
     void findPreviousRequested();
+    void replaceRequested();
+    void replaceAllRequested();
 
 private:
-    QLineEdit* queryField_ = nullptr;
+    QLineEdit* findField_ = nullptr;
+    QLineEdit* replaceField_ = nullptr;
     QPushButton* nextButton_ = nullptr;
     QPushButton* previousButton_ = nullptr;
+    QPushButton* replaceButton_ = nullptr;
+    QPushButton* replaceAllButton_ = nullptr;
 };
 
 } // namespace VexaraEditor

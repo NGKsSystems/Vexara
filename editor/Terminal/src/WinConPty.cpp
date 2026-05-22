@@ -10,9 +10,51 @@
 #endif
 
 #include <QByteArray>
+#include <QDir>
+#include <QFileInfo>
+#include <QStringList>
 #include <vector>
 
 namespace VexaraEditor {
+
+namespace {
+
+QString quoteWindowsArg(const QString& arg)
+{
+    if (!arg.contains(QLatin1Char(' ')) && !arg.contains(QLatin1Char('"'))
+        && !arg.contains(QLatin1Char('\t'))) {
+        return arg;
+    }
+    QString quoted = QStringLiteral("\"");
+    for (const QChar ch : arg) {
+        if (ch == QLatin1Char('"')) {
+            quoted += QStringLiteral("\\\"");
+        } else if (ch == QLatin1Char('\\')) {
+            quoted += QStringLiteral("\\\\");
+        } else {
+            quoted += ch;
+        }
+    }
+    quoted += QLatin1Char('"');
+    return quoted;
+}
+
+QString buildCommandLine(const QString& program, const QStringList& args)
+{
+    const QString executable =
+        QDir::toNativeSeparators(QFileInfo(program).absoluteFilePath());
+    QString cmdLine = quoteWindowsArg(executable);
+    for (const QString& arg : args) {
+        if (arg.isEmpty()) {
+            continue;
+        }
+        cmdLine += QLatin1Char(' ');
+        cmdLine += quoteWindowsArg(arg);
+    }
+    return cmdLine;
+}
+
+} // namespace
 
 WinConPty::WinConPty() = default;
 
@@ -100,21 +142,25 @@ bool WinConPty::start(const QString& program,
                               sizeof(HPCON), nullptr, nullptr);
 
     PROCESS_INFORMATION pi{};
-    std::wstring cmdLine = program.toStdWString();
-    for (const QString& arg : args) {
-        cmdLine += L' ';
-        cmdLine += arg.toStdWString();
+    QStringList launchArgs = args;
+    const QString baseName = QFileInfo(program).fileName().toLower();
+    const bool isCmd = baseName == QStringLiteral("cmd.exe") || baseName == QStringLiteral("cmd");
+    if (isCmd) {
+        launchArgs = {QStringLiteral("/D")};
     }
-    std::vector<wchar_t> cmdBuffer(cmdLine.begin(), cmdLine.end());
+
+    const QString cmdLine = buildCommandLine(program, launchArgs);
+    const std::wstring cmdWide = cmdLine.toStdWString();
+    std::vector<wchar_t> cmdBuffer(cmdWide.begin(), cmdWide.end());
     cmdBuffer.push_back(L'\0');
 
-    const std::wstring cwd = workingDirectory.toStdWString();
+    const std::wstring cwd = QDir::toNativeSeparators(workingDirectory).toStdWString();
     const BOOL created = CreateProcessW(
         nullptr,
-        cmdBuffer.data(),
+        cmdBuffer.data(), // CreateProcessW may modify the command-line buffer
         nullptr,
         nullptr,
-        FALSE,
+        TRUE,
         EXTENDED_STARTUPINFO_PRESENT,
         nullptr,
         cwd.empty() ? nullptr : cwd.c_str(),

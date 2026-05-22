@@ -38,6 +38,48 @@ QString resolveExecutable(const QString& program)
     return program;
 }
 
+void normalizeProfileArgs(TerminalProfile& profile)
+{
+    QStringList cleaned;
+    for (const QString& arg : profile.args) {
+        const QString trimmed = arg.trimmed();
+        if (!trimmed.isEmpty()) {
+            cleaned.append(trimmed);
+        }
+    }
+    profile.args = cleaned;
+
+    const QString baseName = QFileInfo(profile.program).fileName().toLower();
+    if (profile.id == QStringLiteral("cmd") || baseName == QStringLiteral("cmd.exe")) {
+        // /D skips AutoRun registry commands (often the source of "syntax is incorrect"
+        // at startup). ConPTY keeps the session open without /K.
+        profile.args = {QStringLiteral("/D")};
+    } else if (profile.id == QStringLiteral("git-bash")
+               || baseName == QStringLiteral("bash.exe")) {
+        if (!profile.args.contains(QStringLiteral("--login"))) {
+            profile.args.prepend(QStringLiteral("--login"));
+        }
+        if (!profile.args.contains(QStringLiteral("-i"))) {
+            profile.args.append(QStringLiteral("-i"));
+        }
+    }
+}
+
+void pruneInvalidProfiles(QVector<TerminalProfile>& profiles)
+{
+    QVector<TerminalProfile> kept;
+    for (const TerminalProfile& profile : profiles) {
+        const QString path = resolveExecutable(profile.program);
+        if (!path.isEmpty() && QFileInfo::exists(path)) {
+            TerminalProfile resolved = profile;
+            resolved.program = path;
+            normalizeProfileArgs(resolved);
+            kept.append(resolved);
+        }
+    }
+    profiles = kept;
+}
+
 } // namespace
 
 QVector<TerminalProfile> TerminalSettings::profiles() const
@@ -45,11 +87,32 @@ QVector<TerminalProfile> TerminalSettings::profiles() const
     return profiles_;
 }
 
+QVector<TerminalProfile> TerminalSettings::runnableProfiles() const
+{
+    QVector<TerminalProfile> runnable;
+    for (const TerminalProfile& profile : profiles_) {
+        const QString path = resolveExecutable(profile.program);
+        if (!path.isEmpty() && QFileInfo::exists(path)) {
+            TerminalProfile resolved = profile;
+            resolved.program = path;
+            normalizeProfileArgs(resolved);
+            runnable.append(resolved);
+        }
+    }
+    return runnable;
+}
+
 TerminalProfile TerminalSettings::profileById(const QString& id) const
 {
     for (const TerminalProfile& profile : profiles_) {
         if (profile.id == id) {
-            return profile;
+            TerminalProfile resolved = profile;
+            const QString path = resolveExecutable(resolved.program);
+            if (!path.isEmpty() && QFileInfo::exists(path)) {
+                resolved.program = path;
+            }
+            normalizeProfileArgs(resolved);
+            return resolved;
         }
     }
     return TerminalProfile{};
@@ -72,6 +135,11 @@ void TerminalSettings::setDefaultProfileId(const QString& id)
 
 void TerminalSettings::ensureDefaults()
 {
+    pruneInvalidProfiles(profiles_);
+    for (TerminalProfile& profile : profiles_) {
+        normalizeProfileArgs(profile);
+    }
+
     bool hasCmd = hasProfile(QStringLiteral("cmd"));
     bool hasPwsh = hasProfile(QStringLiteral("pwsh"));
     bool hasPs = hasProfile(QStringLiteral("powershell"));
@@ -84,7 +152,7 @@ void TerminalSettings::ensureDefaults()
                 QStringLiteral("cmd"),
                 QStringLiteral("Command Prompt"),
                 cmdPath,
-                {QStringLiteral("/Q"), QStringLiteral("/K")}));
+                {}));
         }
         if (!hasPwsh) {
             const QString pwshPath = resolveExecutable(QStringLiteral("pwsh"));
@@ -115,7 +183,7 @@ void TerminalSettings::ensureDefaults()
                     QStringLiteral("git-bash"),
                     QStringLiteral("Git Bash"),
                     gitBash,
-                    {QStringLiteral("-i")}));
+                    {QStringLiteral("--login"), QStringLiteral("-i")}));
             }
         }
 
@@ -139,7 +207,7 @@ void TerminalSettings::ensureDefaults()
         QStringLiteral("cmd"),
         QStringLiteral("Command Prompt"),
         cmdPath,
-        {QStringLiteral("/Q"), QStringLiteral("/K")}));
+        {}));
 
     const QString pwshPath = resolveExecutable(QStringLiteral("pwsh"));
     if (!pwshPath.isEmpty() && QFileInfo::exists(pwshPath)) {
@@ -167,7 +235,7 @@ void TerminalSettings::ensureDefaults()
             QStringLiteral("git-bash"),
             QStringLiteral("Git Bash"),
             gitBash,
-            {QStringLiteral("-i")}));
+            {QStringLiteral("--login"), QStringLiteral("-i")}));
     }
 
     if (defaultProfileId.isEmpty()) {
@@ -206,6 +274,10 @@ bool TerminalSettings::loadFromJson(const QJsonObject& root)
         }
     }
 
+    pruneInvalidProfiles(profiles_);
+    for (TerminalProfile& profile : profiles_) {
+        normalizeProfileArgs(profile);
+    }
     ensureDefaults();
     if (!hasProfile(defaultProfileId)) {
         if (hasProfile(QStringLiteral("cmd"))) {

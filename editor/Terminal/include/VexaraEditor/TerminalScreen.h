@@ -14,6 +14,11 @@ public:
 
     int cursorRow() const;
     int cursorColumn() const;
+    int caretRow() const;
+    int caretColumn() const;
+
+    void setPsReadLineCompat(bool enabled);
+    bool psReadLineCompat() const;
 
     void setDefaultAttributes();
     void putChar(QChar ch);
@@ -41,12 +46,15 @@ public:
     void applySgr(const QVector<int>& params);
 
     const QVector<QVector<TerminalCell>>& cells() const;
+    const QVector<QVector<TerminalCell>>& scrollback() const;
+    void clearHistory();
 
 private:
     void scrollUp();
     void clampCursor();
     TerminalCell& cellAt(int row, int column);
 
+    QVector<QVector<TerminalCell>> scrollback_;
     QVector<QVector<TerminalCell>> cells_;
     int columns_ = 80;
     int rows_ = 24;
@@ -67,7 +75,9 @@ private:
     bool bold_ = false;
     bool underline_ = false;
     bool insertMode_ = false;
+    bool psReadLineCompat_ = false;
     bool firstInputRedrawCycle_ = false;
+    QVector<int> rowInputExtent_;
     int inputOriginRow_ = -1;
     int inputOriginColumn_ = -1;
     int relativeCupBase_ = -1;

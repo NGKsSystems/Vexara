@@ -5,6 +5,7 @@ namespace VexaraEditor {
 namespace {
 
 constexpr int kMaxRows = 5000;
+constexpr int kMaxScrollbackLines = 10000;
 
 } // namespace
 
@@ -50,6 +51,8 @@ void TerminalScreen::resize(int columns, int rows)
     if (alternateActive_) {
         resizeGrid(mainCells_, columns_, rows_, mainCells_);
     }
+    rowInputExtent_.resize(rows_);
+    rowInputExtent_.fill(0);
     clampCursor();
 }
 
@@ -71,6 +74,45 @@ int TerminalScreen::cursorRow() const
 int TerminalScreen::cursorColumn() const
 {
     return cursorColumn_;
+}
+
+int TerminalScreen::caretRow() const
+{
+    return cursorRow_;
+}
+
+int TerminalScreen::caretColumn() const
+{
+    if (psReadLineCompat_) {
+        return cursorColumn_;
+    }
+    int extent = cursorColumn_;
+    if (cursorRow_ >= 0 && cursorRow_ < rowInputExtent_.size()) {
+        extent = qMax(extent, rowInputExtent_[cursorRow_]);
+    }
+    if (cursorRow_ < 0 || cursorRow_ >= cells_.size()) {
+        return extent;
+    }
+    const QVector<TerminalCell>& line = cells_[cursorRow_];
+    for (int col = line.size() - 1; col >= 0; --col) {
+        if (line[col].ch != QLatin1Char(' ')) {
+            return qMax(extent, col + 1);
+        }
+    }
+    return extent;
+}
+
+void TerminalScreen::setPsReadLineCompat(bool enabled)
+{
+    psReadLineCompat_ = enabled;
+    if (!enabled) {
+        endFirstInputRedrawCycle();
+    }
+}
+
+bool TerminalScreen::psReadLineCompat() const
+{
+    return psReadLineCompat_;
 }
 
 void TerminalScreen::setDefaultAttributes()
@@ -113,11 +155,17 @@ void TerminalScreen::putChar(QChar ch)
         }
         cursorColumn_ = 0;
     }
+    if (!psReadLineCompat_ && cursorRow_ >= 0 && cursorRow_ < rowInputExtent_.size()) {
+        rowInputExtent_[cursorRow_] = qMax(rowInputExtent_[cursorRow_], cursorColumn_);
+    }
 }
 
 void TerminalScreen::carriageReturn()
 {
     cursorColumn_ = 0;
+    if (!psReadLineCompat_ && cursorRow_ >= 0 && cursorRow_ < rowInputExtent_.size()) {
+        rowInputExtent_[cursorRow_] = 0;
+    }
 }
 
 void TerminalScreen::lineFeed()
@@ -163,8 +211,8 @@ void TerminalScreen::setCursorPosition(int row, int column)
 {
     row = qBound(0, row, rows_ - 1);
     column = qBound(0, column, columns_ - 1);
-    if (firstInputRedrawCycle_ && inputOriginColumn_ >= 0 && row == inputOriginRow_
-        && column < inputOriginColumn_) {
+    if (psReadLineCompat_ && firstInputRedrawCycle_ && inputOriginColumn_ >= 0
+        && row == inputOriginRow_ && column < inputOriginColumn_) {
         if (relativeCupBase_ < 0) {
             relativeCupBase_ = column;
         }
@@ -178,6 +226,10 @@ void TerminalScreen::setCursorPosition(int row, int column)
 
 void TerminalScreen::eraseInLine(int mode)
 {
+    if (!psReadLineCompat_ && mode == 0 && cursorColumn_ == 0 && cursorRow_ >= 0
+        && cursorRow_ < rowInputExtent_.size()) {
+        rowInputExtent_[cursorRow_] = 0;
+    }
     if (mode == 0) {
         for (int col = cursorColumn_; col < columns_; ++col) {
             cellAt(cursorRow_, col).ch = QLatin1Char(' ');
@@ -277,7 +329,9 @@ bool TerminalScreen::isFirstInputRedrawCycle() const
 
 void TerminalScreen::eraseInLineAfterCarriageReturn()
 {
-    if (firstInputRedrawCycle_ && inputOriginColumn_ >= 0) {
+    // cmd redraws the full line after \r (cursor at col 0). PSReadLine uses \r mid-line.
+    if (psReadLineCompat_ && firstInputRedrawCycle_ && inputOriginColumn_ >= 0
+        && cursorColumn_ > 0) {
         cursorColumn_ = inputOriginColumn_;
     }
     eraseInLine(0);
@@ -285,7 +339,10 @@ void TerminalScreen::eraseInLineAfterCarriageReturn()
 
 void TerminalScreen::restoreCursor()
 {
-    if (firstInputRedrawCycle_) {
+    if (!psReadLineCompat_ || firstInputRedrawCycle_) {
+        return;
+    }
+    if (savedCursorRow_ < cursorRow_) {
         return;
     }
     if (savedCursorRow_ == cursorRow_ && savedCursorColumn_ > cursorColumn_) {
@@ -380,10 +437,27 @@ const QVector<QVector<TerminalCell>>& TerminalScreen::cells() const
     return cells_;
 }
 
+const QVector<QVector<TerminalCell>>& TerminalScreen::scrollback() const
+{
+    return scrollback_;
+}
+
+void TerminalScreen::clearHistory()
+{
+    scrollback_.clear();
+    rowInputExtent_.fill(0);
+    cursorRow_ = 0;
+    cursorColumn_ = 0;
+}
+
 void TerminalScreen::scrollUp()
 {
     if (rows_ <= 1) {
         return;
+    }
+    scrollback_.append(cells_.front());
+    while (scrollback_.size() > kMaxScrollbackLines) {
+        scrollback_.removeFirst();
     }
     for (int row = 1; row < rows_; ++row) {
         cells_[row - 1] = cells_[row];

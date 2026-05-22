@@ -133,6 +133,52 @@ bool DocumentWorkspace::findInActiveDocument(const QString& text, bool forward)
     return editor->find(text, flags);
 }
 
+bool DocumentWorkspace::replaceInActiveDocument(const QString& text,
+                                                const QString& replacement,
+                                                bool replaceAll)
+{
+    CodeEditorWidget* editor = activeEditor();
+    if (!editor || text.isEmpty()) {
+        return false;
+    }
+
+    QPlainTextEdit* surface = editor->editor();
+
+    if (replaceAll) {
+        QTextCursor cursor = surface->textCursor();
+        cursor.beginEditBlock();
+        cursor.movePosition(QTextCursor::Start);
+        surface->setTextCursor(cursor);
+
+        int count = 0;
+        while (editor->find(text)) {
+            QTextCursor match = surface->textCursor();
+            match.insertText(replacement);
+            surface->setTextCursor(match);
+            ++count;
+        }
+        cursor.endEditBlock();
+        return count > 0;
+    }
+
+    QTextCursor cursor = surface->textCursor();
+    if (cursor.hasSelection() && cursor.selectedText() == text) {
+        cursor.insertText(replacement);
+        surface->setTextCursor(cursor);
+        editor->find(text);
+        return true;
+    }
+
+    if (!editor->find(text)) {
+        return false;
+    }
+
+    QTextCursor match = surface->textCursor();
+    match.insertText(replacement);
+    surface->setTextCursor(match);
+    return true;
+}
+
 CodeEditorWidget* DocumentWorkspace::activeEditor() const
 {
     return qobject_cast<CodeEditorWidget*>(tabs_->currentWidget());

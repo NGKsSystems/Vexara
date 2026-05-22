@@ -21,6 +21,7 @@ PtyReaderThread::~PtyReaderThread()
 void PtyReaderThread::setOutputHandle(void* readHandle)
 {
     readHandle_ = readHandle;
+    stopRequested_ = false;
 }
 
 void PtyReaderThread::stopReading()
@@ -42,7 +43,7 @@ void PtyReaderThread::run()
         return;
     }
 
-    while (!stopRequested_) {
+    while (!stopRequested_ && readHandle_ == handle) {
         DWORD available = 0;
         if (!PeekNamedPipe(handle, nullptr, 0, nullptr, &available, nullptr)) {
             break;

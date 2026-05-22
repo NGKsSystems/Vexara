@@ -25,6 +25,7 @@ public:
     bool hasActiveUnsavedChanges() const;
 
     bool findInActiveDocument(const QString& text, bool forward);
+    bool replaceInActiveDocument(const QString& text, const QString& replacement, bool replaceAll);
 
 private:
     CodeEditorWidget* activeEditor() const;

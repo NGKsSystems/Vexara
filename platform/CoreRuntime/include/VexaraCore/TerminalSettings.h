@@ -12,6 +12,7 @@ public:
     QString defaultProfileId;
 
     QVector<TerminalProfile> profiles() const;
+    QVector<TerminalProfile> runnableProfiles() const;
     TerminalProfile profileById(const QString& id) const;
     bool hasProfile(const QString& id) const;
 

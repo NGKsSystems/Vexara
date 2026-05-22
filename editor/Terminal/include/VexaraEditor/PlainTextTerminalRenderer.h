@@ -11,7 +11,7 @@ public:
     static int documentPositionForScreen(const TerminalScreen& screen);
 
     void apply(const TerminalScreen& screen, QPlainTextEdit* view, bool scrollToBottom);
-    void placeCaret(const TerminalScreen& screen, QPlainTextEdit* view);
+    void placeCaret(const TerminalScreen& screen, QPlainTextEdit* view, bool ensureVisible = true);
 };
 
 } // namespace VexaraEditor

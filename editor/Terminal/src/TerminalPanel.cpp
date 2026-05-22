@@ -42,6 +42,7 @@ TerminalPanel::TerminalPanel(QWidget* parent)
     surface_ = new QPlainTextEdit(this);
     surface_->setFocusPolicy(Qt::StrongFocus);
     surface_->setLineWrapMode(QPlainTextEdit::NoWrap);
+    surface_->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     surface_->setUndoRedoEnabled(false);
     surface_->setReadOnly(true);
     surface_->setTextInteractionFlags(Qt::TextSelectableByMouse);
@@ -70,8 +71,10 @@ TerminalPanel::TerminalPanel(QWidget* parent)
         }
     });
     connect(surface_->verticalScrollBar(), &QScrollBar::valueChanged, this, [this]() {
-        if (backend_ == Backend::ConPty && session_->isActive()) {
-            lockCaretToScreen();
+        QScrollBar* vbar = surface_->verticalScrollBar();
+        scrollPinnedToBottom_ = vbar->value() >= vbar->maximum() - 2;
+        if (backend_ == Backend::ConPty && session_->isActive() && caretOverlay_) {
+            caretOverlay_->syncToScreen(session_->screen());
         }
     });
     connect(surface_->horizontalScrollBar(), &QScrollBar::valueChanged, this, [this]() {
@@ -86,8 +89,17 @@ TerminalPanel::TerminalPanel(QWidget* parent)
 
     connect(session_, &TerminalSession::screenUpdated, this, &TerminalPanel::refreshView);
     connect(session_, &TerminalSession::sessionEnded, this, [this](const QString& message) {
-        surface_->appendPlainText(message);
-        backend_ = Backend::None;
+        if (restartingShell_) {
+            return;
+        }
+        stopBackend();
+        if (!message.isEmpty()) {
+            surface_->appendPlainText(message.endsWith(QLatin1Char('\n')) ? message : message + QLatin1Char('\n'));
+        }
+        surface_->setReadOnly(true);
+        if (caretOverlay_) {
+            caretOverlay_->hide();
+        }
     });
 
     connect(lineBridgeProcess_, &QProcess::readyReadStandardOutput, this, [this]() {
@@ -241,17 +253,15 @@ void TerminalPanel::stopBackend()
 {
     session_->stop();
     if (lineBridgeProcess_->state() != QProcess::NotRunning) {
-        lineBridgeProcess_->terminate();
-        lineBridgeProcess_->waitForFinished(1000);
-        if (lineBridgeProcess_->state() != QProcess::NotRunning) {
-            lineBridgeProcess_->kill();
-        }
+        lineBridgeProcess_->kill();
+        lineBridgeProcess_->waitForFinished(300);
     }
     backend_ = Backend::None;
 }
 
 void TerminalPanel::restartShell()
 {
+    restartingShell_ = true;
     stopBackend();
     if (caretOverlay_) {
         caretOverlay_->hide();
@@ -263,19 +273,38 @@ void TerminalPanel::restartShell()
     if (workingDirectory_.isEmpty()) {
         surface_->setPlainText(QStringLiteral("Open a folder to activate the terminal.\n"));
         surface_->setReadOnly(true);
+        restartingShell_ = false;
         return;
     }
 
     if (profile_.program.isEmpty()) {
         surface_->setPlainText(QStringLiteral("No terminal profile selected.\n"));
         surface_->setReadOnly(true);
+        restartingShell_ = false;
         return;
     }
 
-    if (WinConPty::isAvailable() && startConPty()) {
+    if (!QFileInfo::exists(profile_.program)) {
+        surface_->setPlainText(
+            QStringLiteral("Shell not found: %1\nCheck Settings or install the shell, then pick it from the Shell menu.\n")
+                .arg(profile_.program));
+        surface_->setReadOnly(true);
+        restartingShell_ = false;
         return;
     }
-    startLineBridge();
+
+    scrollPinnedToBottom_ = true;
+
+    if (WinConPty::isAvailable() && startConPty()) {
+        restartingShell_ = false;
+        return;
+    }
+
+    surface_->appendPlainText(
+        QStringLiteral("Failed to start %1. Check that the executable exists and try again.\n")
+            .arg(profile_.displayName));
+    surface_->setReadOnly(true);
+    restartingShell_ = false;
 }
 
 bool TerminalPanel::startConPty()
@@ -308,7 +337,7 @@ bool TerminalPanel::startLineBridge()
     lineBridgeProcess_->setWorkingDirectory(workingDirectory_);
     lineBridgeProcess_->start();
 
-    if (!lineBridgeProcess_->waitForStarted(3000)) {
+    if (lineBridgeProcess_->state() != QProcess::Running) {
         appendLineBridgeOutput(QStringLiteral("Failed to start: ") + profile_.program + QStringLiteral("\n"));
         appendLineBridgePrompt();
     }
@@ -325,7 +354,7 @@ void TerminalPanel::refreshView()
         return;
     }
 
-    renderer_->apply(session_->screen(), surface_, true);
+    renderer_->apply(session_->screen(), surface_, scrollPinnedToBottom_);
     lockCaretToScreen();
 }
 
@@ -354,8 +383,9 @@ void TerminalPanel::lockCaretToScreen()
         }
         return;
     }
-    renderer_->placeCaret(screen, surface_);
-    if (caretOverlay_) {
+    if (scrollPinnedToBottom_ && screen.psReadLineCompat()) {
+        renderer_->placeCaret(screen, surface_, true);
+    } else if (caretOverlay_) {
         caretOverlay_->syncToScreen(screen);
     }
 }

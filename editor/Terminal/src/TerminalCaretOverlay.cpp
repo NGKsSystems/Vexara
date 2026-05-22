@@ -37,6 +37,7 @@ void TerminalCaretOverlay::syncToDocumentPosition(int position)
 
     QTextCursor textCursor(surface_->document());
     textCursor.setPosition(clamped);
+    surface_->document()->documentLayout()->update();
 
     // cursorRect() is in viewport coordinates; this widget's parent is the viewport.
     QRect caret = surface_->cursorRect(textCursor);

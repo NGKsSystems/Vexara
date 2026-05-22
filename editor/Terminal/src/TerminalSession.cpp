@@ -158,19 +158,26 @@ bool TerminalSession::startConPty(const VexaraCore::TerminalProfile& profile,
     stop();
 
     terminalScreen_->resize(columns, rows);
+    terminalScreen_->clearHistory();
     parser_->reset();
     terminalScreen_->setInsertMode(false);
+    const bool psReadLineCompat = profile.id == QStringLiteral("pwsh")
+                                  || profile.id == QStringLiteral("powershell");
+    terminalScreen_->setPsReadLineCompat(psReadLineCompat);
     g_ptyStartupChunksLogged = 0;
     g_ptyChunkCounter = 0;
     g_logNextEditOutputChunk = false;
     TerminalStartupDiag::beginSession();
 
     if (!pty_->start(profile.program, profile.args, workingDirectory, columns, rows)) {
-        emit sessionEnded(QStringLiteral("Failed to start ConPTY session."));
         return false;
     }
 
     reader_->setOutputHandle(pty_->outputReadHandle());
+    if (reader_->isRunning()) {
+        reader_->stopReading();
+        reader_->wait(5000);
+    }
     reader_->start();
 
     active_ = true;
@@ -180,11 +187,11 @@ bool TerminalSession::startConPty(const VexaraCore::TerminalProfile& profile,
 
 void TerminalSession::stop()
 {
-    if (reader_->isRunning()) {
-        reader_->stopReading();
-        reader_->wait(2000);
-    }
+    reader_->stopReading();
     pty_->terminate();
+    if (reader_->isRunning()) {
+        reader_->wait(5000);
+    }
     active_ = false;
     pendingOutput_.clear();
     TerminalStartupDiag::endSession();
@@ -195,7 +202,7 @@ void TerminalSession::writeInput(const QByteArray& data)
     if (!active_ || data.isEmpty()) {
         return;
     }
-    if (!terminalScreen_->isFirstInputRedrawCycle()) {
+    if (terminalScreen_->psReadLineCompat() && !terminalScreen_->isFirstInputRedrawCycle()) {
         terminalScreen_->beginFirstInputRedrawCycle();
         g_logNextEditOutputChunk = true;
     }
@@ -218,8 +225,16 @@ void TerminalSession::onBytesReceived(const QByteArray& chunk)
         return;
     }
     pendingOutput_.append(chunk);
-    if (pendingOutput_.size() > 256 * 1024) {
-        pendingOutput_.remove(0, pendingOutput_.size() - 256 * 1024);
+
+    // Parse and commit overflow instead of discarding it (discarding looked like missing scrollback).
+    constexpr int kMaxPendingBytes = 1024 * 1024;
+    constexpr int kParseChunkBytes = 65536;
+    while (pendingOutput_.size() > kMaxPendingBytes) {
+        const int toParse = qMin(kParseChunkBytes, pendingOutput_.size() - kMaxPendingBytes / 2);
+        const QByteArray part = pendingOutput_.left(toParse);
+        pendingOutput_.remove(0, toParse);
+        parser_->feed(part);
+        emit screenUpdated();
     }
 
     QTimer::singleShot(0, this, &TerminalSession::flushPendingOutput);
