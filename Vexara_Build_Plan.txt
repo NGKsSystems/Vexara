@@ -1,0 +1,233 @@
+VEXARA - COMPREHENSIVE BUILD PLAN
+=====================================
+Date: May 21, 2026
+Status: Updated Draft (C++ / Qt + Full Editor Experience)
+
+================================================================================
+1. CORE PHILOSOPHY & PRINCIPLES
+================================================================================
+
+Vexara is built on the following core principles:
+
+- Strongly Opinionated: Ship with strong, well-considered defaults. Only expose a small number of settings in the UI to reduce decision fatigue.
+
+- Configuration Approach: Use a mix of minimal UI for common settings + JSON as the primary method for advanced control. JSON should be clean, documented, and version-controllable.
+
+- Editor Experience: Vexara will be built as a full native code editor using Qt (C++). The goal is to deliver a complete, self-contained editing environment with deep multi-agent integration, rather than acting only as a companion tool to VS Code or Cursor.
+
+- Multi-Agent by Design: Built from the ground up to support multiple coordinated agents with clear roles (Builders + Supervisors).
+
+- Verification First: Testing, self-review, and checklist completion are first-class features. The system should actively push for quality and completion.
+
+- Minimal but Scalable UI: Keep the interface calm and focused. Design multi-agent views to start simple but allow future growth without major rewrites.
+
+- Focus of Innovation: The main value comes from the agent orchestration layer and multi-agent visibility, built on top of a solid native Qt editor foundation.
+
+================================================================================
+2. PRODUCT VISION & GOALS
+================================================================================
+
+Vision:
+Vexara is a disciplined, multi-agent orchestration system built as a full native Qt code editor. It combines a clean, purposeful editing experience with powerful multi-agent capabilities to plan, build, test, and verify complex software projects with greater reliability than current tools.
+
+Primary Goals:
+- Deliver a complete native editor experience with deep multi-agent integration.
+- Reduce the need to constantly babysit AI agents on large or complex tasks.
+- Provide better visibility and control when using multiple agents.
+- Deliver stronger built-in verification, testing, and quality enforcement.
+- Avoid settings bloat by being strongly opinionated with excellent defaults.
+- Allow power users to deeply customize behavior through clean JSON configuration.
+- Support flexible model usage (any provider via API key).
+
+================================================================================
+3. HIGH-LEVEL ARCHITECTURE
+================================================================================
+
+Core Concept:
+Vexara is a native Qt desktop application that functions as a full code editor while running a sophisticated multi-agent orchestration system. It is not just an agent panel — it is a complete development environment.
+
+Initial Agent Roles:
+
+- Builder Agents: Responsible for doing the actual coding work (writing code, making edits, implementing features).
+
+- Supervisor / QC Agents: Responsible for quality control, reviewing work, enforcing checklists, pushing for testing, and preventing early stopping or shortcuts.
+
+- Orchestrator: Manages overall task flow, coordinates between agents, tracks progress, and handles handoffs.
+
+Future Expansion:
+Support for additional specialized agents (e.g., Research Agent, Documentation Agent, Security Reviewer, etc.).
+
+================================================================================
+4. CONFIGURATION STRATEGY
+================================================================================
+
+Philosophy:
+Keep the user interface calm and minimal. Most advanced behavior is controlled through clean JSON files.
+
+Breakdown:
+
+- UI Settings (Minimal):
+  - Themes and appearance
+  - Model setup and import
+  - Basic auto-approval behavior
+  - A small number of high-level toggles
+
+- Advanced Configuration:
+  - Handled primarily through JSON files
+  - Clean, documented, and version-controllable
+  - Supports global and per-project configuration
+
+- Model Support:
+  - Users can use any model they want as long as they have an API key.
+  - Supported providers include OpenAI, Anthropic, xAI/Grok, Google, and local models (via Ollama or similar) where technically feasible.
+  - Model setup should be straightforward in the UI, with advanced routing and per-agent model assignment available via JSON.
+
+- Defaults:
+  - Strongly opinionated with excellent defaults so most users need little to no configuration.
+
+================================================================================
+5. MULTI-AGENT SYSTEM DESIGN
+================================================================================
+
+Approach:
+Vexara is designed as a true multi-agent system from the beginning.
+
+Initial Design:
+- Clear separation between Builder agents and Supervisor/QC agents.
+- Supervisor agents actively review work, enforce checklists, and push for proper testing and completion.
+- Leverage Grok Build’s subagent capabilities where beneficial.
+- Support for agents to use different models when appropriate.
+
+Key Goals:
+- Better handling of large-scope work.
+- Reduced tendency for agents to stop early or take shortcuts.
+- Improved reliability through role separation and verification loops.
+
+================================================================================
+6. USER INTERFACE & EXPERIENCE
+================================================================================
+
+Editor Experience:
+- Vexara will be built as a full native Qt code editor.
+- Core components will include: project/file explorer, multi-document tabbed editing, syntax highlighting, integrated terminal, search, and navigation.
+- The focus is on delivering a clean, calm, and purposeful editing experience with strong multi-agent capabilities integrated throughout.
+
+Multi-Agent Views (Phased Approach):
+
+Phase 1 (MVP):
+- Simple "Agents" panel showing active agents and their current status.
+- Basic visibility into plans and progress.
+- Ability to approve or reject changes.
+
+Phase 2:
+- Role-based views (separate visibility for Builder agents vs Supervisor agents).
+- Improved plan and checklist tracking.
+
+Phase 3:
+- Advanced visibility into agent-to-agent communication.
+- Richer debugging and inspection capabilities.
+- More sophisticated monitoring of long-running tasks.
+
+Design Principle:
+Start simple and focused, but architect the system so multi-agent views can grow in sophistication without requiring major rework.
+
+================================================================================
+7. VERIFICATION & QUALITY LAYER
+================================================================================
+
+This is one of the core differentiators of Vexara.
+
+Goals:
+- Make testing and self-review a default part of the workflow instead of an afterthought.
+- Reduce the tendency of agents to stop early or skip verification.
+- Provide clear reporting on what was completed and verified versus what still needs work.
+
+Planned Capabilities:
+- Mandatory or strongly encouraged verification steps after significant changes.
+- Integration with build and test commands.
+- Supervisor agents that actively enforce checklist completion.
+- Ability to run broader project checks and report gaps.
+- Clear visibility into verification status.
+
+================================================================================
+8. TECHNICAL FOUNDATIONS
+================================================================================
+
+Tech Stack:
+- Primary Language/Framework: C++ with Qt (Qt Widgets and/or Qt Quick)
+- Goal: Build a complete native desktop code editor with deep multi-agent orchestration capabilities.
+
+Editor Components (to be developed in Qt):
+- Project / File explorer
+- Multi-document tabbed editing interface
+- Syntax highlighting and basic language support
+- Integrated terminal
+- Search, navigation, and basic editing features
+
+Agent Orchestration:
+- Custom multi-agent orchestration layer built in C++.
+- Primary integration with Grok Build, leveraging its subagent and planning capabilities.
+- Support for custom agents and flexible model assignment.
+
+Model Integration:
+- Flexible multi-provider support via API keys.
+- Users can bring their own models (OpenAI, Anthropic, Grok, local models via Ollama, etc.).
+- Model configuration exposed simply in the UI, with advanced options available in JSON.
+
+Configuration:
+- JSON-first for advanced and power-user settings.
+- Clean, documented schema.
+- Global + per-project configuration support.
+
+Extensibility:
+- Controlled extensibility through defined skills, tools, and JSON configuration.
+
+================================================================================
+9. DEVELOPMENT ROADMAP (HIGH-LEVEL)
+================================================================================
+
+Phase 0: Foundations
+- Finalize core philosophy and architecture.
+- Confirm C++ / Qt as the tech stack and full editor experience as the goal.
+- Define initial agent roles and orchestration approach.
+- Establish configuration strategy and JSON schema direction.
+
+Phase 1: Qt Editor Foundation + Basic Multi-Agent System
+- Build core Qt editor components (file explorer, tabs, basic editing, terminal, syntax highlighting).
+- Implement basic multi-agent orchestration.
+- Create simple Agents panel.
+- Basic integration with Grok Build.
+- Core verification loop foundation.
+
+Phase 2: Verification & Testing Layer
+- Strengthen testing enforcement and reporting.
+- Improve Supervisor agent capabilities.
+- Better checklist and completion tracking.
+
+Phase 3: Advanced Multi-Agent Views & Polish
+- Role-based and advanced agent visibility.
+- Improved long-running task monitoring.
+- Configuration system refinement.
+- Overall UI/UX polish.
+
+Phase 4: Extensibility & Ecosystem
+- Polish JSON configuration experience.
+- Model management improvements.
+- Documentation and onboarding.
+
+================================================================================
+10. OPEN QUESTIONS / AREAS TO DEFINE LATER
+================================================================================
+
+- Specific Qt approach (Qt Widgets vs Qt Quick / QML for different parts of the UI).
+- Depth of language support and syntax highlighting to implement initially.
+- How to best structure the Qt codebase for both editor components and agent orchestration.
+- Final JSON schema for configuration.
+- Security and secret management approach for API keys.
+- Branding, documentation strategy, and distribution model.
+
+================================================================================
+END OF PLAN
+================================================================================
+
+This document reflects the updated plan with C++ / Qt as the tech stack and Vexara positioned as a full native code editor experience with deep multi-agent capabilities.

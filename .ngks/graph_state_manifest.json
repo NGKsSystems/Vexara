@@ -1,0 +1,393 @@
+{
+  "generated_at": "2026-05-22T09:29:03.655817+00:00",
+  "project_root": "C:\\Users\\suppo\\Desktop\\NGKsSystems\\Vexara",
+  "manifest_hash": "414770771d961eea38cc14b8e42db9fc82ff6db6b6e40c520a0fb750d563ef41",
+  "tracked_file_count": 64,
+  "changed_since_last": true,
+  "rows": [
+    {
+      "path": ".agent_rules.md",
+      "size": 7840,
+      "mtime_ns": 1775629050426330000,
+      "sha256": "674c0b60e954806f453e0c1048da6c970a3bc88aeed4b82ad20736c1b10af100"
+    },
+    {
+      "path": ".graph_state/graph_state.json",
+      "size": 645,
+      "mtime_ns": 1779442137385107000,
+      "sha256": "39daa2a184128d72c5fcd8a24fc00c607ef2a1034f45f47ebb21df513b85b2bc"
+    },
+    {
+      "path": ".ngksgraph_cache/cache_version.txt",
+      "size": 1,
+      "mtime_ns": 1779364491683636700,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    {
+      "path": ".ngksgraph_cache/profile_release/last_hit.txt",
+      "size": 22,
+      "mtime_ns": 1779364491684149700,
+      "sha256": "fe2680be6fd7f50e980d2859f4bd84db6c64309ac1363ad633a270a7ae7c06e7"
+    },
+    {
+      "path": ".ngksgraph_cache/profile_release/plan.json",
+      "size": 8694,
+      "mtime_ns": 1779364489880164400,
+      "sha256": "4c921bbaa510fd1ee09d96fea18bc2ae3fd975e90f4d3afe51f8c0a7fa1594c3"
+    },
+    {
+      "path": ".ngksgraph_cache/profile_release/plan_key.json",
+      "size": 1045,
+      "mtime_ns": 1779364489882703800,
+      "sha256": "f4254431f1bef004bf36a83cfd6283217f872a3dea7ab2a3abd4d568d2537d54"
+    },
+    {
+      "path": ".ngksgraph_cache/profile_release/scan_fingerprint.json",
+      "size": 2001,
+      "mtime_ns": 1779364489884216300,
+      "sha256": "c5ea1baee77bd669040f2c23925d9987596f9fcee45ee760f5c9daccd9529b7d"
+    },
+    {
+      "path": ".vexara/project.json",
+      "size": 55,
+      "mtime_ns": 1779370902530459400,
+      "sha256": "eb6a77ef0776761a02622fa7156928cc139ae93700d3419e9dc47c2216477f5c"
+    },
+    {
+      "path": "build_graph/release/bin/pty_first_edit_chunk.txt",
+      "size": 331,
+      "mtime_ns": 1779441826435478600,
+      "sha256": "4e2523c941163f30aba4b5b231d1e33325ad2f4f7842c023a793bfc4c753bf01"
+    },
+    {
+      "path": "build_graph/release/bin/pty_prompt_startup_diag.txt",
+      "size": 21487,
+      "mtime_ns": 1779441826466243700,
+      "sha256": "2a9e580acd58ed3597eb57c92cba89e8156e06768960177d70944213e4cb2176"
+    },
+    {
+      "path": "build_graph/release/bin/pty_startup_chunk_0.txt",
+      "size": 123,
+      "mtime_ns": 1779441822857400300,
+      "sha256": "cf45507eda038ab84f15844b5faf1fa537f7946c2b41338fdf7b832b7ae2305c"
+    },
+    {
+      "path": "build_graph/release/bin/pty_startup_chunk_1.txt",
+      "size": 459,
+      "mtime_ns": 1779441822878567200,
+      "sha256": "5aabedbea8fb169c25a61556af75e62317f923197b5753d0740c0147c4cdc7e9"
+    },
+    {
+      "path": "build_graph/release/ngksbuildcore_plan.json",
+      "size": 18741,
+      "mtime_ns": 1779364727604369500,
+      "sha256": "5a8417ed090cd1278ac50bfe644276064bacf70042fbe8e89c57d7a0345213da"
+    },
+    {
+      "path": "build_graph/release/qt/moc_AgentRegistry.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779375755539165000,
+      "sha256": "91ab69c18a68ceedcf348ad5322bc522737a1b9e270b47c7823d8ed202e18396"
+    },
+    {
+      "path": "build_graph/release/qt/moc_AgentsPanel.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779375755445534500,
+      "sha256": "8f55a2fd0b5271c4559a85eacf5a91920d9f4ac113544dabfa2677c9bd4e0a52"
+    },
+    {
+      "path": "build_graph/release/qt/moc_CodeEditorWidget.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779373675958111900,
+      "sha256": "43dc3671726c98ee47520057f0296b9e6c07c9a642453930e81fc4ba01522f8c"
+    },
+    {
+      "path": "build_graph/release/qt/moc_CodeHighlighter.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779371064683726300,
+      "sha256": "978c3cde98e4146489b7386c4c1bc729f666ef0bf8510387b5e5b84a689a3716"
+    },
+    {
+      "path": "build_graph/release/qt/moc_FindBar.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779368459604719100,
+      "sha256": "8b342b2da3350461e7178294db1125cb0de56a0bee350da8f819592170be8773"
+    },
+    {
+      "path": "build_graph/release/qt/moc_GrokBuildBridge.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779375755576586100,
+      "sha256": "f01eb0cae75e8d9d02acf8d7b03b8bff0cc49ce14ef3379358c6deb4eabfa5f0"
+    },
+    {
+      "path": "build_graph/release/qt/moc_Orchestrator.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779375755614082800,
+      "sha256": "7680627c0aa76fbcec49ade6e49f348ac0939d4c1b3a191b269a11425b11d332"
+    },
+    {
+      "path": "build_graph/release/qt/moc_ProjectTreePanel.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779370715053371700,
+      "sha256": "037d340b9eb8c5cd5c58c1d84d2dc65c63132bcec3b5cf92efe5260be6090593"
+    },
+    {
+      "path": "build_graph/release/qt/moc_PtyReaderThread.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779379944332457800,
+      "sha256": "c22c4165a7009326961d35df483c5bd8cbefd1dcdd72a6bf71a108912475e741"
+    },
+    {
+      "path": "build_graph/release/qt/moc_SettingsDialog.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779375755494888600,
+      "sha256": "b7635a72e824e120cacf23f03db42ab554bbfd9f8390561ed26ccd381de54410"
+    },
+    {
+      "path": "build_graph/release/qt/moc_TerminalCaretOverlay.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779381579830626300,
+      "sha256": "48cd1fd0b2caaf64d3edc1a5c6e73450c53689f64421b03450064b4ff6ce2e0e"
+    },
+    {
+      "path": "build_graph/release/qt/moc_TerminalDock.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779380729321427000,
+      "sha256": "47a1c5f74917d87694cd25d929b14d1e5909761f6ad447d35a65f921039ed73b"
+    },
+    {
+      "path": "build_graph/release/qt/moc_TerminalPanel.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779429287649049100,
+      "sha256": "32faa10f3dd1e3c8df12edf4b4e682213d296f1c86b00946917802dbeefe19be"
+    },
+    {
+      "path": "build_graph/release/qt/moc_TerminalSession.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779427834959658800,
+      "sha256": "07e55dc7ee9db6ce0b0142e36d8bf6b07ed53fdb06736c97250c899ca73da763"
+    },
+    {
+      "path": "build_graph/release/qt/moc_VerificationRunner.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779375755644500800,
+      "sha256": "b14eeb6159fe49df4cd9b403ee31eb5b552aec7220db7bf432a867a8ac12d18a"
+    },
+    {
+      "path": "build_graph/release/resolution/10_target_spec.json",
+      "size": 737,
+      "mtime_ns": 1779364727593849800,
+      "sha256": "5f6c446b03229b854a7a2beb6486d23c3efe159122014bdee7fbfd7ae6efd70a"
+    },
+    {
+      "path": "build_graph/release/resolution/11_capability_inventory.json",
+      "size": 3239,
+      "mtime_ns": 1779364727594845200,
+      "sha256": "b47da7049d599720533e3e87986d26af1e17e5a3367e79e052d387697ac64eaf"
+    },
+    {
+      "path": "build_graph/release/resolution/12_required_vs_available.json",
+      "size": 3528,
+      "mtime_ns": 1779364727595848300,
+      "sha256": "d73d54ae907dc4ab1810067c847c0941588d37fbb269b1545507bae576cf8db8"
+    },
+    {
+      "path": "build_graph/release/resolution/13_capability_conflicts.json",
+      "size": 33,
+      "mtime_ns": 1779364727595848300,
+      "sha256": "67e8b6dac74e960fcd75db28d1469adfc6904d371f07efe7d680c9366d435f53"
+    },
+    {
+      "path": "build_graph/release/resolution/14_resolution_report.json",
+      "size": 3636,
+      "mtime_ns": 1779364727596847700,
+      "sha256": "ba254fc6ca2cbb2b6634f7fa2ff5826fb0b380ac0fda9c4879ecd8bf226dd511"
+    },
+    {
+      "path": "build_graph/release/resolution/15_build_plan_resolution_context.json",
+      "size": 382,
+      "mtime_ns": 1779364727597848200,
+      "sha256": "20ea95273b2a6aa095662129b06c5854d31cfce80849de313e94e4a1e489ea2c"
+    },
+    {
+      "path": "build_graph/release/resolution/16_fix_recommendations.json",
+      "size": 33,
+      "mtime_ns": 1779364727597848200,
+      "sha256": "67e8b6dac74e960fcd75db28d1469adfc6904d371f07efe7d680c9366d435f53"
+    },
+    {
+      "path": "build_graph/release/resolution/17_resolution_summary.md",
+      "size": 269,
+      "mtime_ns": 1779364727598846800,
+      "sha256": "a4cdad51d8438b06ce30c350f10063f3fce28be9932316a9848916f565c0f213"
+    },
+    {
+      "path": "build_plan.hash.txt",
+      "size": 66,
+      "mtime_ns": 1779441092455009200,
+      "sha256": "90381993f694f3e71a06c6c256ad9f7928ba9f6406f114090665d9ebe609fb28"
+    },
+    {
+      "path": "build_plan.json",
+      "size": 97899,
+      "mtime_ns": 1779441092453501100,
+      "sha256": "d04cf42b63e60988cd7b0f0811fbd2bb2308f17155cab6d7590f967490f9ceb7"
+    },
+    {
+      "path": "certification/baseline_v1/baseline_manifest.json",
+      "size": 633,
+      "mtime_ns": 1779367509390760400,
+      "sha256": "b6606f8b2f6caf3cdad2e72b50f072ef83c1a623ce20e14a0e3e4de5b2181aba"
+    },
+    {
+      "path": "certification/baseline_v1/baseline_matrix.json",
+      "size": 1041,
+      "mtime_ns": 1779367509391766100,
+      "sha256": "f2978cae6e2fd9d3bd9da2a0afb3f19b40457aa98925dfc309e2194750929b84"
+    },
+    {
+      "path": "certification/baseline_v1/diagnostic_metrics.json",
+      "size": 761,
+      "mtime_ns": 1779367509391766100,
+      "sha256": "c548761db177183364a8791dd25a8ca3d507af25f7f529c3b1a82b60f5b426e6"
+    },
+    {
+      "path": "certification/scenario_index.json",
+      "size": 796,
+      "mtime_ns": 1779367509389761900,
+      "sha256": "90de3c82d79386556f42d10028f38ecebecfd9b8d48c3875de723ff114a70803"
+    },
+    {
+      "path": "certification_target.json",
+      "size": 1037,
+      "mtime_ns": 1779367509387761600,
+      "sha256": "85b9f028182d7bb69f6bc2c0ad97713344df5382a38ceda8062cee4078b2c511"
+    },
+    {
+      "path": "docs/ERROR_CORRECTION_LOG.md",
+      "size": 1464,
+      "mtime_ns": 1779380213552532000,
+      "sha256": "943f2101eca86dd50cc4720032dcc0ffaec49b0853ca8e74930950c3ffa451d3"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "size": 5225,
+      "mtime_ns": 1779380212391627200,
+      "sha256": "93a8efcb3cb830a0f66255d2c23674acc73cc9e3896d45802e9cddb0f8292f46"
+    },
+    {
+      "path": "docs/PROJECT_SCOPE.md",
+      "size": 2399,
+      "mtime_ns": 1779375896643806800,
+      "sha256": "5cb1ee06ad174e94197d0592fb73f6b2e47dd29aead8fb8ae1086254f18ea33f"
+    },
+    {
+      "path": "editor/Terminal/ARCHITECTURE.md",
+      "size": 1004,
+      "mtime_ns": 1779379819446563500,
+      "sha256": "8f94cd1c48545bfb26cc74d2e5106a993cc47a33b98541aa4ae9223f2aaf73bd"
+    },
+    {
+      "path": "env_capsule.hash.txt",
+      "size": 65,
+      "mtime_ns": 1779441091736057000,
+      "sha256": "36e8fe71a00f650325b3683bb196b17b41022b4595d76acfcef5152fa4831dd8"
+    },
+    {
+      "path": "env_capsule.lock.json",
+      "size": 485,
+      "mtime_ns": 1779441091733538200,
+      "sha256": "a08a7670594a21e26b6942a4dceda4fda02e80e82d6906c75faa58552d895c73"
+    },
+    {
+      "path": "env_capsule.resolved.hash.txt",
+      "size": 65,
+      "mtime_ns": 1779441091570520400,
+      "sha256": "36e8fe71a00f650325b3683bb196b17b41022b4595d76acfcef5152fa4831dd8"
+    },
+    {
+      "path": "env_capsule.resolved.json",
+      "size": 485,
+      "mtime_ns": 1779441091558980900,
+      "sha256": "a08a7670594a21e26b6942a4dceda4fda02e80e82d6906c75faa58552d895c73"
+    },
+    {
+      "path": "ngksgraph.toml",
+      "size": 3584,
+      "mtime_ns": 1779376597045373700,
+      "sha256": "f0050c0a23d1d46fe6b4a69b3ffe412e3dd060d9a485b879578e1ce70ea5cac6"
+    },
+    {
+      "path": "proofs/LATEST_NGKSBUILDCORE_PROOF_DIR.txt",
+      "size": 145,
+      "mtime_ns": 1779441224880762000,
+      "sha256": "b8cdffb3dde73193347cdbab48380872a42a8bca45aa535ba9ca593d75ec041c"
+    },
+    {
+      "path": "proofs/latest_ngksbuildcore_run/environment.txt",
+      "size": 15558,
+      "mtime_ns": 1779441092752292200,
+      "sha256": "dccbe4ea79775b7861b999cea6eca4f97a3363f59070e46061889929202c481f"
+    },
+    {
+      "path": "proofs/latest_ngksbuildcore_run/git_head.txt",
+      "size": 82,
+      "mtime_ns": 1779441092879344200,
+      "sha256": "1b70b2159f130abf71374bfc2a5d0eb353f52fcc2b054f2cedc5de076470658d"
+    },
+    {
+      "path": "proofs/latest_ngksbuildcore_run/git_status.txt",
+      "size": 94,
+      "mtime_ns": 1779441092849832800,
+      "sha256": "bc74fa585acce3e7c207cd631c14bf50eaacba2ca8ac1e6d087dd05b91c20e2a"
+    },
+    {
+      "path": "proofs/latest_ngksbuildcore_run/inputs_env_capsule.txt",
+      "size": 162,
+      "mtime_ns": 1779441092880692400,
+      "sha256": "ef8b0d07aed8a0e5bc1d67dd52fc559c4fa46ace0043cbcc967cff79662d17f1"
+    },
+    {
+      "path": "proofs/latest_ngksbuildcore_run/inputs_plan_hash.txt",
+      "size": 147,
+      "mtime_ns": 1779441092881703500,
+      "sha256": "63ec6b3dc7e5548ef62860ece26e7a4b1d999f7ba0b5b7682900474141a38002"
+    },
+    {
+      "path": "proofs/latest_ngksbuildcore_run/summary.json",
+      "size": 17513,
+      "mtime_ns": 1779441224856634600,
+      "sha256": "ca691b7075cf02c62422fedf99f6a94321b1aecc1bfcb50801bad9078a63c5f5"
+    },
+    {
+      "path": "proofs/latest_ngksbuildcore_run/summary.txt",
+      "size": 240,
+      "mtime_ns": 1779441224857618200,
+      "sha256": "9a09bcd1151fb7aac553e7ed81751ec8bc9a08f17aa2439e5d5710923f4412ef"
+    },
+    {
+      "path": "proofs/latest_ngksbuildcore_run/tool_versions.txt",
+      "size": 82,
+      "mtime_ns": 1779441092818168300,
+      "sha256": "0e2666587836586ac864bf7cb2aadeae8401dd59c7f970f41127c8f9f43356ad"
+    },
+    {
+      "path": "Universal Agent Ruleset.txt",
+      "size": 2901,
+      "mtime_ns": 1769944649885083200,
+      "sha256": "d50ddea2eebb236bf859fe1a82f744984397594c26e54fbb4d576a94da72568d"
+    },
+    {
+      "path": "Vexara_Build_Plan.txt",
+      "size": 11053,
+      "mtime_ns": 1779363242351298800,
+      "sha256": "67afe09bf4ac3892e326f25ac5ae98ad1b75043492f94923e7c62fc7a863677c"
+    },
+    {
+      "path": "Vexara_Project_Checklist.txt",
+      "size": 7257,
+      "mtime_ns": 1779363247599619000,
+      "sha256": "48677f1940ecc4a1377235dda92db5804340ad3652922ee840cc7aaccd8d8d80"
+    }
+  ]
+}

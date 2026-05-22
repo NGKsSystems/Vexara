@@ -1,0 +1,129 @@
+# Vexara — modular Qt editor (NGKsGraph / DevFabEco; no CMake)
+name = "Vexara"
+out_dir = "build_graph"
+target_type = "exe"
+cxx_std = 20
+
+include_dirs = [
+  "C:/Qt/6.10.2/msvc2022_64/include",
+  "C:/Qt/6.10.2/msvc2022_64/include/QtCore",
+  "C:/Qt/6.10.2/msvc2022_64/include/QtGui",
+  "C:/Qt/6.10.2/msvc2022_64/include/QtWidgets",
+  "platform/CoreRuntime/include",
+  "editor/Common/include",
+  "editor/Explorer/include",
+  "editor/CodeEditor/include",
+  "editor/Workspace/include",
+  "editor/Search/include",
+  "editor/Highlighting/include",
+  "editor/Terminal/include",
+  "editor/Shell/include",
+  "orchestration/Core/include",
+  "apps/Vexara/src",
+]
+
+defines = ["UNICODE", "_UNICODE"]
+cflags = ["/utf-8", "/Zc:__cplusplus", "/permissive-", "/EHsc", "/FS"]
+ldflags = ["/SUBSYSTEM:WINDOWS", "/ENTRY:mainCRTStartup"]
+libs = ["Qt6Core", "Qt6Gui", "Qt6Widgets", "Qt6EntryPoint"]
+lib_dirs = ["C:/Qt/6.10.2/msvc2022_64/lib"]
+warnings = "default"
+
+[profiles.release]
+cflags = ["/O2", "/MD"]
+defines = ["NDEBUG"]
+ldflags = []
+
+[qt]
+enabled = true
+qt_root = "C:/Qt/6.10.2/msvc2022_64"
+prefix = "C:/Qt/6.10.2/msvc2022_64"
+version = 6
+modules = ["Core", "Gui", "Widgets"]
+moc_path = "C:/Qt/6.10.2/msvc2022_64/bin/moc.exe"
+uic_path = "C:/Qt/6.10.2/msvc2022_64/bin/uic.exe"
+rcc_path = "C:/Qt/6.10.2/msvc2022_64/bin/rcc.exe"
+windeployqt_qmldir = ""
+include_dirs = [
+  "C:/Qt/6.10.2/msvc2022_64/include",
+  "C:/Qt/6.10.2/msvc2022_64/include/QtCore",
+  "C:/Qt/6.10.2/msvc2022_64/include/QtGui",
+  "C:/Qt/6.10.2/msvc2022_64/include/QtWidgets",
+]
+lib_dirs = ["C:/Qt/6.10.2/msvc2022_64/lib"]
+libs = ["Qt6Core", "Qt6Gui", "Qt6Widgets"]
+
+[ai]
+enabled = false
+
+[[targets]]
+name = "VexaraCore"
+type = "staticlib"
+src_glob = ["platform/CoreRuntime/src/**/*.cpp"]
+
+[[targets]]
+name = "VexaraEditorExplorer"
+type = "staticlib"
+src_glob = ["editor/Explorer/src/**/*.cpp", "editor/Explorer/include/**/*.h"]
+
+[[targets]]
+name = "VexaraEditorCodeEditor"
+type = "staticlib"
+src_glob = ["editor/CodeEditor/src/**/*.cpp", "editor/CodeEditor/include/**/*.h"]
+
+[[targets]]
+name = "VexaraEditorWorkspace"
+type = "staticlib"
+src_glob = ["editor/Workspace/src/**/*.cpp", "editor/Workspace/include/**/*.h"]
+links = ["VexaraEditorCodeEditor", "VexaraEditorHighlighting"]
+
+[[targets]]
+name = "VexaraEditorHighlighting"
+type = "staticlib"
+src_glob = ["editor/Highlighting/src/**/*.cpp", "editor/Highlighting/include/**/*.h"]
+
+[[targets]]
+name = "VexaraEditorTerminal"
+type = "staticlib"
+src_glob = ["editor/Terminal/src/**/*.cpp", "editor/Terminal/include/**/*.h"]
+links = ["VexaraCore"]
+
+[[targets]]
+name = "VexaraEditorSearch"
+type = "staticlib"
+src_glob = ["editor/Search/src/**/*.cpp", "editor/Search/include/**/*.h"]
+
+[[targets]]
+name = "VexaraEditorShell"
+type = "staticlib"
+src_glob = ["editor/Shell/src/**/*.cpp", "editor/Shell/include/**/*.h"]
+links = [
+  "VexaraCore",
+  "VexaraEditorExplorer",
+  "VexaraEditorWorkspace",
+  "VexaraEditorSearch",
+  "VexaraEditorTerminal",
+  "VexaraOrchestration",
+]
+
+[[targets]]
+name = "VexaraOrchestration"
+type = "staticlib"
+src_glob = ["orchestration/Core/src/**/*.cpp", "orchestration/Core/include/**/*.h"]
+links = ["VexaraCore"]
+
+[[targets]]
+name = "Vexara"
+type = "exe"
+src_glob = ["apps/Vexara/src/**/*.cpp"]
+links = [
+  "VexaraCore",
+  "VexaraEditorExplorer",
+  "VexaraEditorCodeEditor",
+  "VexaraEditorWorkspace",
+  "VexaraEditorHighlighting",
+  "VexaraEditorTerminal",
+  "VexaraEditorSearch",
+  "VexaraEditorShell",
+  "VexaraOrchestration",
+]
