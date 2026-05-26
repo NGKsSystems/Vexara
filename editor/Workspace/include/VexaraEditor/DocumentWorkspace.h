@@ -15,6 +15,13 @@ public:
     explicit DocumentWorkspace(QWidget* parent = nullptr);
 
     bool openFile(const QString& absolutePath);
+    bool openFileAt(const QString& absolutePath, int line = 1, int column = 1);
+    bool applyReplacement(const QString& absolutePath,
+                          int line,
+                          int column,
+                          int replaceLength,
+                          const QString& newText);
+    bool reloadFromDisk(const QString& absolutePath);
     int openDocumentCount() const;
     int maxOpenTabs() const;
     bool isTabLimitReached() const;
@@ -22,6 +29,7 @@ public:
     bool saveActiveFile();
     int saveAllOpenFiles();
     QString activeFilePath() const;
+    QString activeSelectedText() const;
     bool hasActiveUnsavedChanges() const;
 
     bool findInActiveDocument(const QString& text, bool forward);
@@ -29,6 +37,8 @@ public:
 
 private:
     CodeEditorWidget* activeEditor() const;
+    CodeEditorWidget* editorForPath(const QString& absolutePath) const;
+    bool moveCursorTo(CodeEditorWidget* editor, int line, int column) const;
     int findTabForPath(const QString& absolutePath) const;
     bool addTabForFile(const QString& absolutePath);
     void bindEditor(CodeEditorWidget* editor);

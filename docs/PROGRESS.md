@@ -50,7 +50,7 @@
 ### UI
 
 - **Agents** dock: agent list with state/model, plan + pending panes, Run Task / Approve / Reject / Verify.
-- **Settings > Preferences**: Grok Build command/args, verification command; models overview (edit full profiles in JSON).
+- **Settings > Preferences**: Grok Build executable (browse), args, per-model API keys, verification command; saves to `vexara.json`.
 
 ### Build Plan roadmap status
 
@@ -64,9 +64,11 @@
 
 ### Operator setup
 
-1. Set `grok_build.command` (and optional `args`) in Settings or `%APPDATA%/.../vexara.json`.
-2. Open a project folder; use Agents panel **Run Task** with a prompt.
-3. After success, **Approve** or **Reject**; use **Verify** to run the configured build command.
+1. Install xAI Grok Build CLI — see `docs/GROK_BUILD_SETUP.md` (`irm https://x.ai/cli/install.ps1 | iex` on Windows).
+2. **Settings > Preferences** or Agents **Setup**: confirm Grok Build executable (auto-detected at `%USERPROFILE%\.grok\bin\grok.exe` when present).
+3. Optional: paste API keys in the same dialog (saved to `vexara.json`) or use env vars (`XAI_API_KEY`, etc.).
+4. Open a project folder; describe a task and press **Run Task** (or Enter).
+5. After success, **Approve** or **Reject**; use **Verify** to run the configured build command.
 
 ## 2026-05-21 — Copy / paste
 

@@ -26,6 +26,11 @@ bool AgentRegistry::updateAgent(const AgentSnapshot& snapshot)
 {
     for (AgentSnapshot& agent : agents_) {
         if (agent.id == snapshot.id) {
+            if (agent.state == snapshot.state && agent.statusLine == snapshot.statusLine
+                && agent.planSummary == snapshot.planSummary
+                && agent.modelId == snapshot.modelId) {
+                return true;
+            }
             agent = snapshot;
             emit agentsChanged();
             return true;
@@ -57,12 +62,18 @@ QString AgentRegistry::pendingChangeSummary() const
 
 void AgentRegistry::setActivePlanSummary(const QString& summary)
 {
+    if (activePlanSummary_ == summary) {
+        return;
+    }
     activePlanSummary_ = summary;
     emit agentsChanged();
 }
 
 void AgentRegistry::setPendingChangeSummary(const QString& summary)
 {
+    if (pendingChangeSummary_ == summary) {
+        return;
+    }
     pendingChangeSummary_ = summary;
     emit agentsChanged();
 }

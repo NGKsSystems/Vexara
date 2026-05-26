@@ -5,10 +5,13 @@
 #include "VexaraEditor/FindBar.h"
 #include "VexaraEditor/ProjectTreePanel.h"
 #include "VexaraEditor/TerminalDock.h"
+#include "VexaraEditor/WorkspaceEditorHost.h"
+#include "VexaraEditor/TesterCommandHost.h"
 #include "VexaraEditor/TerminalPanel.h"
 #include "VexaraEditor/SettingsDialog.h"
 #include "VexaraEditor/TextContextMenu.h"
 #include "VexaraCore/AppIdentity.h"
+#include "VexaraCore/GrokTaskContext.h"
 #include "VexaraCore/ProjectSettings.h"
 
 #include <QAction>
@@ -47,6 +50,11 @@ MainWindow::MainWindow(VexaraOrchestration::Orchestrator& orchestrator, QWidget*
     globalSettings_.terminal.ensureDefaults();
     orchestrator_.configure(globalSettings_);
     buildUi();
+    workspaceEditorHost_.setWorkspace(workspace_);
+    orchestrator_.setWorkerEditorHost(&workspaceEditorHost_);
+    testerCommandHost_.setTerminalPanel(terminalDockWidget_->panel());
+    testerCommandHost_.setVerificationCommand(globalSettings_.verification.command);
+    orchestrator_.setTesterCommandHost(&testerCommandHost_);
     buildMenuBar();
     wireSignals();
     refreshWindowTitle();
@@ -70,6 +78,24 @@ void MainWindow::buildUi()
     editorFindBar_ = new FindBar(this);
     terminalDockWidget_ = new TerminalDock(globalSettings_.terminal, this);
     agentsPanel_->bindOrchestrator(orchestrator_);
+    connect(agentsPanel_, &AgentsPanel::settingsRequested, this, [this]() {
+        SettingsDialog dialog(globalSettings_, this);
+        if (dialog.exec() == QDialog::Accepted) {
+            orchestrator_.configure(globalSettings_);
+            testerCommandHost_.setVerificationCommand(globalSettings_.verification.command);
+            agentsPanel_->refresh();
+            statusBar()->showMessage(QStringLiteral("Settings saved"));
+        }
+    });
+    connect(agentsPanel_, &AgentsPanel::taskRequested, this,
+            [this](const QString& userTask, bool useHierarchicalPipeline) {
+                if (useHierarchicalPipeline) {
+                    orchestrator_.enqueuePipelineTask(userTask, buildGrokTaskContext());
+                } else {
+                    orchestrator_.submitTask(userTask, buildGrokTaskContext());
+                }
+                agentsPanel_->refresh();
+            });
 
     editorFindStrip_ = new QWidget(this);
     editorFindStrip_->setVisible(false);
@@ -151,7 +177,8 @@ void MainWindow::buildMenuBar()
     replaceAction->setShortcut(QKeySequence::Replace);
 
     QMenu* settingsMenu = menuBar()->addMenu(QStringLiteral("&Settings"));
-    QAction* preferencesAction = settingsMenu->addAction(QStringLiteral("&Preferences..."));
+    QAction* preferencesAction =
+        settingsMenu->addAction(QStringLiteral("&Preferences (Grok Build & API keys)..."));
 
     QMenu* viewMenu = menuBar()->addMenu(QStringLiteral("&View"));
     QAction* terminalAction = viewMenu->addAction(QStringLiteral("&Terminal"));
@@ -234,12 +261,10 @@ void MainWindow::buildMenuBar()
     connect(&orchestrator_, &VexaraOrchestration::Orchestrator::taskStateChanged, this,
             [this](const QString& summary) {
                 statusBar()->showMessage(summary.left(200));
-                agentsPanel_->refresh();
             });
     connect(&orchestrator_, &VexaraOrchestration::Orchestrator::verificationStateChanged, this,
             [this](const QString& summary) {
                 statusBar()->showMessage(summary.left(200));
-                agentsPanel_->refresh();
             });
 }
 
@@ -388,6 +413,8 @@ void MainWindow::setProjectRoot(const QString& path)
     }
 
     projectRoot_ = info.absoluteFilePath();
+    workspaceEditorHost_.setProjectRoot(projectRoot_);
+    testerCommandHost_.setProjectRoot(projectRoot_);
     orchestrator_.setProjectRoot(projectRoot_);
     explorer_->setRootPath(projectRoot_);
     globalSettings_.lastProjectRoot = projectRoot_;
@@ -418,6 +445,16 @@ void MainWindow::refreshWindowTitle()
                  + QStringLiteral("]");
     }
     setWindowTitle(title);
+}
+
+VexaraCore::GrokTaskContext MainWindow::buildGrokTaskContext() const
+{
+    VexaraCore::GrokTaskContext context;
+    context.projectPath = projectRoot_;
+    context.detectedProjectType = VexaraCore::detectProjectType(projectRoot_);
+    context.currentFilePath = workspace_->activeFilePath();
+    context.selectedText = workspace_->activeSelectedText();
+    return context;
 }
 
 } // namespace VexaraEditor

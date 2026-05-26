@@ -23,7 +23,13 @@ bool GlobalSettings::load(QString* errorMessage)
         terminal.ensureDefaults();
         models.ensureDefaults();
         grokBuild.loadFromJson(QJsonObject{});
+        grokBuild.ensureDefaults();
+        runTask.loadFromJson(QJsonObject{});
+        runTask.ensureDefaults();
+        agentExecution.loadFromJson(QJsonObject{});
+        agentExecution.ensureDefaults();
         verification.loadFromJson(QJsonObject{});
+        verification.ensureDefaults();
         return true;
     }
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -47,8 +53,17 @@ bool GlobalSettings::load(QString* errorMessage)
     lastProjectRoot = root.value(QStringLiteral("last_project_root")).toString();
     terminal.loadFromJson(root);
     models.loadFromJson(root);
+    if (models.consumedLegacyApiKeys()) {
+        save(errorMessage);
+    }
     grokBuild.loadFromJson(root);
+    grokBuild.ensureDefaults();
+    runTask.loadFromJson(root);
+    runTask.ensureDefaults();
+    agentExecution.loadFromJson(root);
+    agentExecution.ensureDefaults();
     verification.loadFromJson(root);
+    verification.ensureDefaults();
     return true;
 }
 
@@ -64,6 +79,7 @@ bool GlobalSettings::save(QString* errorMessage) const
     terminal.saveToJson(root);
     models.saveToJson(root);
     grokBuild.saveToJson(root);
+    agentExecution.saveToJson(root);
     verification.saveToJson(root);
 
     const QString path = Paths::globalConfigPath();

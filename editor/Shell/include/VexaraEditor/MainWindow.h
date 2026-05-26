@@ -4,7 +4,11 @@
 #include <QMainWindow>
 
 #include "VexaraCore/GlobalSettings.h"
+#include "VexaraCore/GrokTaskContext.h"
 #include "VexaraOrchestration/Orchestrator.h"
+
+#include "VexaraEditor/WorkspaceEditorHost.h"
+#include "VexaraEditor/TesterCommandHost.h"
 
 namespace VexaraEditor {
 
@@ -34,9 +38,12 @@ private:
     void hideEditorFind();
     void showTreeFind();
     void hideTreeFind();
+    VexaraCore::GrokTaskContext buildGrokTaskContext() const;
 
     VexaraOrchestration::Orchestrator& orchestrator_;
     VexaraCore::GlobalSettings globalSettings_;
+    WorkspaceEditorHost workspaceEditorHost_;
+    TesterCommandHost testerCommandHost_;
     QString projectRoot_;
 
     ProjectTreePanel* explorer_ = nullptr;

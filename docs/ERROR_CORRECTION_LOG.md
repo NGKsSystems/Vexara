@@ -12,3 +12,6 @@
 | 2026-05-21 | `VexaraOrchestration` MOC/link for `Q_OBJECT` types | Added `orchestration/Core/include/**/*.h` to `src_glob`; linked `VexaraCore` |
 | 2026-05-21 | PowerShell ConPTY showed box chars and `[?25l` in paths | `QPlainTextEdit` does not render ANSI; strip VT sequences in `AnsiStrip.h` before display |
 | 2026-05-21 | Garbled paths after strip-only approach | Replaced strip on ConPTY path with `VtParser` + `TerminalScreen` + `PlainTextTerminalRenderer` |
+| 2026-05-21 | Agents panel had no conversational chat | Added `AgentChatClient` (Qt Network, xAI/OpenAI) and Chat UI with **Send** vs **Run Task** |
+| 2026-05-21 | API keys had no UI validation | `ApiKeyValidator` hits provider `/v1/models`; Settings shows per-key status + **Validate all keys** |
+| 2026-05-21 | API keys stored plain text in vexara.json | `SecureCredentialStore` uses Windows Credential Manager; JSON keeps only `api_key_env`; legacy keys migrated on load |

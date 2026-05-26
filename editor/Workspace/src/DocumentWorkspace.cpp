@@ -52,6 +52,100 @@ bool DocumentWorkspace::openFile(const QString& absolutePath)
     return addTabForFile(absolutePath);
 }
 
+bool DocumentWorkspace::openFileAt(const QString& absolutePath, int line, int column)
+{
+    if (!openFile(absolutePath)) {
+        return false;
+    }
+
+    CodeEditorWidget* editor = activeEditor();
+    if (!editor) {
+        return false;
+    }
+
+    return moveCursorTo(editor, line, column);
+}
+
+bool DocumentWorkspace::applyReplacement(const QString& absolutePath,
+                                         int line,
+                                         int column,
+                                         int replaceLength,
+                                         const QString& newText)
+{
+    if (!openFileAt(absolutePath, line, column)) {
+        return false;
+    }
+
+    CodeEditorWidget* editor = activeEditor();
+    if (!editor || !editor->editor()) {
+        return false;
+    }
+
+    QPlainTextEdit* surface = editor->editor();
+    QTextCursor cursor = surface->textCursor();
+    if (replaceLength > 0) {
+        cursor.movePosition(QTextCursor::Right, QTextCursor::KeepAnchor, replaceLength);
+    }
+    cursor.insertText(newText);
+    surface->setTextCursor(cursor);
+    editor->document()->setModified(true);
+    refreshTabTitle(editor);
+    return true;
+}
+
+bool DocumentWorkspace::reloadFromDisk(const QString& absolutePath)
+{
+    const QString normalized = QFileInfo(absolutePath).absoluteFilePath();
+    if (!QFileInfo(normalized).exists()) {
+        return false;
+    }
+
+    QFile file(normalized);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        return false;
+    }
+
+    const QString contents = QString::fromUtf8(file.readAll());
+    CodeEditorWidget* editor = editorForPath(normalized);
+    if (!editor) {
+        return openFile(normalized);
+    }
+
+    editor->setPlainText(contents);
+    editor->document()->setModified(false);
+    refreshTabTitle(editor);
+    return true;
+}
+
+CodeEditorWidget* DocumentWorkspace::editorForPath(const QString& absolutePath) const
+{
+    const int index = findTabForPath(absolutePath);
+    if (index < 0) {
+        return nullptr;
+    }
+    return qobject_cast<CodeEditorWidget*>(tabs_->widget(index));
+}
+
+bool DocumentWorkspace::moveCursorTo(CodeEditorWidget* editor, int line, int column) const
+{
+    if (!editor || !editor->editor()) {
+        return false;
+    }
+
+    QPlainTextEdit* surface = editor->editor();
+    QTextCursor cursor = surface->textCursor();
+    cursor.movePosition(QTextCursor::Start);
+    const int targetLine = qMax(1, line);
+    for (int i = 1; i < targetLine; ++i) {
+        cursor.movePosition(QTextCursor::Down);
+    }
+    const int targetColumn = qMax(1, column);
+    cursor.movePosition(QTextCursor::Right, QTextCursor::MoveAnchor, targetColumn - 1);
+    surface->setTextCursor(cursor);
+    surface->setFocus();
+    return true;
+}
+
 int DocumentWorkspace::openDocumentCount() const
 {
     return tabs_->count();
@@ -111,6 +205,16 @@ QString DocumentWorkspace::activeFilePath() const
         return QString();
     }
     return editor->property("vexara_path").toString();
+}
+
+QString DocumentWorkspace::activeSelectedText() const
+{
+    const CodeEditorWidget* editor = activeEditor();
+    if (!editor || !editor->editor()) {
+        return QString();
+    }
+    const QString selected = editor->editor()->textCursor().selectedText();
+    return selected.isEmpty() ? QString() : selected;
 }
 
 bool DocumentWorkspace::hasActiveUnsavedChanges() const

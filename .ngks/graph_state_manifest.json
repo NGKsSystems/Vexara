@@ -1,21 +1,27 @@
 {
-  "generated_at": "2026-05-22T09:29:03.655817+00:00",
+  "generated_at": "2026-05-25T19:07:06.539095+00:00",
   "project_root": "C:\\Users\\suppo\\Desktop\\NGKsSystems\\Vexara",
-  "manifest_hash": "414770771d961eea38cc14b8e42db9fc82ff6db6b6e40c520a0fb750d563ef41",
-  "tracked_file_count": 64,
+  "manifest_hash": "ba592b6792340e05e759ac1110e659ea5ffcdb3e1a8c14a6ff7ddee16b7ece76",
+  "tracked_file_count": 267,
   "changed_since_last": true,
   "rows": [
     {
       "path": ".agent_rules.md",
-      "size": 7840,
-      "mtime_ns": 1775629050426330000,
-      "sha256": "674c0b60e954806f453e0c1048da6c970a3bc88aeed4b82ad20736c1b10af100"
+      "size": 7870,
+      "mtime_ns": 1779451749045152200,
+      "sha256": "a45f12fbf82a6f89f7feed4c1a7a49309b6fab66a45194867873f45921bb9213"
+    },
+    {
+      "path": ".aider.chat.history.md",
+      "size": 166210,
+      "mtime_ns": 1779735773395922600,
+      "sha256": "0ce1e8ac6d6ac6b4367092c82ed98708cc5e7e40bfe7976d38d7b52447be3840"
     },
     {
       "path": ".graph_state/graph_state.json",
       "size": 645,
-      "mtime_ns": 1779442137385107000,
-      "sha256": "39daa2a184128d72c5fcd8a24fc00c607ef2a1034f45f47ebb21df513b85b2bc"
+      "mtime_ns": 1779736013605826400,
+      "sha256": "c854fc82b2a7cf69bbd49eebcc7870a465e04bea393c22784126f2f50e55d214"
     },
     {
       "path": ".ngksgraph_cache/cache_version.txt",
@@ -48,6 +54,1080 @@
       "sha256": "c5ea1baee77bd669040f2c23925d9987596f9fcee45ee760f5c9daccd9529b7d"
     },
     {
+      "path": ".vexara/pipeline/aider/ollama-cpu.model.metadata.json",
+      "size": 144,
+      "mtime_ns": 1779734786039543300,
+      "sha256": "3d55e02d59c115284c7d71de30138977940e66de636074fa6496c4618387fad2"
+    },
+    {
+      "path": ".vexara/pipeline/aider/ollama-cpu.model.settings.yml",
+      "size": 203,
+      "mtime_ns": 1779734786035542400,
+      "sha256": "9f858f87d56fcb52069ef4bfa329efe410212d989a4a057a30f20ea60eb2c9c9"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/1/task.json",
+      "size": 1325,
+      "mtime_ns": 1779712036624396400,
+      "sha256": "ba9691d80ae7d31d139f1ad87c36161af8fe4985efe3876ab56468a2e8b274df"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/10/plan.json",
+      "size": 4001,
+      "mtime_ns": 1779590116518417200,
+      "sha256": "6122d9bf7d8903413c8b341f924adc9e0d3247ba88a821c05e28055c8ecf49d9"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/10/task.json",
+      "size": 1446,
+      "mtime_ns": 1779590111959323100,
+      "sha256": "0ade26ee1c81ecd524a87b4213d4ee5ebbfea7e4f11f96c744d87d14078f63be"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/100/task.json",
+      "size": 2154,
+      "mtime_ns": 1779718745955826700,
+      "sha256": "f80f93134bc0a30bff256f7e1b4bdcefe99e33652a82cf4a73b186c5c7ca8d0b"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/100/test_results.json",
+      "size": 1746,
+      "mtime_ns": 1779718748408938200,
+      "sha256": "a82436fac7db1cc3c667d721d5d1411ecec1f5a76cde9159bb0750d4c80589e8"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/101/review_decision.json",
+      "size": 1539,
+      "mtime_ns": 1779718750567239400,
+      "sha256": "d0e107d1f3acb7d11a703fdefb0dc0c82e3ca94566bc461d4af49bd68c04cdaa"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/101/task.json",
+      "size": 1553,
+      "mtime_ns": 1779718748443168100,
+      "sha256": "ad12436128e555ff1b5e4b2e7711200d0eae734792abef84b58bbbb0abb84d7c"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/102/task.json",
+      "size": 2031,
+      "mtime_ns": 1779723773741613200,
+      "sha256": "65b844aa0ae188f6b0371569d25a9676e58f2354a9740e1a3adfc0c9996bc808"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/102/test_results.json",
+      "size": 3620,
+      "mtime_ns": 1779718768214403700,
+      "sha256": "a758b000ccf3f487c3b38def654fe79c9003d98fad2da0c9eb01bb08fa190e0f"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/103/approved_plan.json",
+      "size": 3981,
+      "mtime_ns": 1779718780459123600,
+      "sha256": "e0d5c55d65615a2fd80d4386defe235b68c02fc5794247ad8173f8a9af4f8f57"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/103/task.json",
+      "size": 1405,
+      "mtime_ns": 1779718775967389600,
+      "sha256": "b2a115671fdbb4cd6698acb37fea943234c7ed304fd98d86ef804f6077043b37"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/104/task.json",
+      "size": 1873,
+      "mtime_ns": 1779718787816163000,
+      "sha256": "da990c342921bce9a1d28edf4ff033982b75a99d2c0e39f0f5e9c03b8aece867"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/104/worker_result.md",
+      "size": 5255,
+      "mtime_ns": 1779719335066774700,
+      "sha256": "423f347669177736ec54729a9f8af96d558674bd44e6d0c4dc77d76de793faf3"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/105/task.json",
+      "size": 1389,
+      "mtime_ns": 1779719335097841700,
+      "sha256": "f56179d47c9fb403e39303ec6435ad1d49332d6b05173b52cf237598c1f59b02"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/105/test_results.json",
+      "size": 2124,
+      "mtime_ns": 1779719339318027500,
+      "sha256": "3f70cb1c3dd4d8178b4c145952a325d470080939e983942a3f2bf15dbbb7e954"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/106/review_decision.json",
+      "size": 1717,
+      "mtime_ns": 1779719342025654500,
+      "sha256": "582be3e28e678a05654a79f5579a248a6e1b0277410a0053cbd58a254ef0b2bc"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/106/task.json",
+      "size": 1423,
+      "mtime_ns": 1779719339345152400,
+      "sha256": "dc547f2640a7ad15d4306791ca1c441a583923ec3d1bcf08bf1758d09d44f6a2"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/107/task.json",
+      "size": 1449,
+      "mtime_ns": 1779728457724467700,
+      "sha256": "b54a7014d89587e18fae267ae6e9c0c88e11c4b53271d77a3aaf893466e6ba65"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/108/plan.json",
+      "size": 3990,
+      "mtime_ns": 1779730072211703800,
+      "sha256": "59a5c5d1c4755385935bd4241ecceca4f0b36c7d268812ac21b19c2c8a89cfe1"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/108/task.json",
+      "size": 1317,
+      "mtime_ns": 1779730068007955000,
+      "sha256": "d6674db2dfa36a0f6832f71bf8e56dd73fb5bb1c0f1fb50c561b09adc4582105"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/109/approved_plan.json",
+      "size": 3738,
+      "mtime_ns": 1779730079347287200,
+      "sha256": "71c6ff6267493d5c768b873888c14d260e91bed9c1a507d90ea61d3423383695"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/109/task.json",
+      "size": 1406,
+      "mtime_ns": 1779730075197891500,
+      "sha256": "71ccf6d0fab0508c0e6005c66b6874d349e8e6db5a494cbfcd8bd83e740937ef"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/11/task.json",
+      "size": 1533,
+      "mtime_ns": 1779590117957503800,
+      "sha256": "cd90ba5f3167f3a1079e489eeb19b323f1377e51bb61f3ec22997f0f767959b8"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/110/task.json",
+      "size": 1907,
+      "mtime_ns": 1779730683061167400,
+      "sha256": "d334780349737a72cc35f75b68149ee005b86f71376c4101dfd261d31d650655"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/12/plan.json",
+      "size": 3454,
+      "mtime_ns": 1779591787173715800,
+      "sha256": "515189418238dad25a4d9c5f1e4625434da9fe4138e0f8df321f4a1094a06d5f"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/12/task.json",
+      "size": 1448,
+      "mtime_ns": 1779591782759555000,
+      "sha256": "c847869bbfec73d6cf3b24f75ac016f933e411f0eab1126af127f9a98cef9822"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/13/task.json",
+      "size": 1535,
+      "mtime_ns": 1779591788245033500,
+      "sha256": "736c491ce4ca5a2e8fbca29692044a27b6f4d9be392c1ba10e15a1b017b727f3"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/14/plan.json",
+      "size": 3083,
+      "mtime_ns": 1779592856970146800,
+      "sha256": "6c49578ec3d7c76c2650cf85b2d889fe1282d19a16917c33ce9e5a28af32e216"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/14/task.json",
+      "size": 1316,
+      "mtime_ns": 1779592853913347300,
+      "sha256": "37edf1c7a05c8abb53593593541c71b16ba22567500c72e03eb0a2bc98679b35"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/15/task.json",
+      "size": 1403,
+      "mtime_ns": 1779592858425032600,
+      "sha256": "9c1e0aeba6d2ac8d02c587a60e320d08620e068e5c03bf9253f93c37dc273dde"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/16/plan.json",
+      "size": 4295,
+      "mtime_ns": 1779593778774755900,
+      "sha256": "452f22b1c522b1c30a1fe9d07ff2f34f1a37a9f2cac00af4c7e57ef12873bd68"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/16/task.json",
+      "size": 1316,
+      "mtime_ns": 1779593775037099700,
+      "sha256": "fa2fbc00cfaa3e64b712dfbece30da07fbb44530d12cf89b313ba6e356efeae5"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/17/approved_plan.json",
+      "size": 3469,
+      "mtime_ns": 1779593782219512000,
+      "sha256": "2eec938403eafd74a88bdf10ac92883feb32b4e30ec955e4999f71f79595db38"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/17/task.json",
+      "size": 1404,
+      "mtime_ns": 1779593779018265100,
+      "sha256": "2a041a6a12e3d2f9497e19830cd86ea7d1e735b7f7f8082f8756a691491e5046"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/18/task.json",
+      "size": 1878,
+      "mtime_ns": 1779688112908290300,
+      "sha256": "8a1fd5bcf4c2ee0ec8b7df2b86014789ac04d4bd9a591e0d48ab4810948ac3d2"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/19/plan.json",
+      "size": 3130,
+      "mtime_ns": 1779597095690284000,
+      "sha256": "ab2e04fe7a57470ca571c24be60d82e7d11a2c0ea4b6a9d5886ca2fde0707e32"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/19/task.json",
+      "size": 1316,
+      "mtime_ns": 1779597092351622900,
+      "sha256": "18b3db6dae9173e19310de7b1ba981578960db88b89dd4e9af35fe33b485a9a7"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/2/plan.json",
+      "size": 4716,
+      "mtime_ns": 1779559630791114700,
+      "sha256": "7a75772ebe3e6c614e321c64ef5d66d97be03aaf5e588ae8b89e522e6a08ea0c"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/2/task.json",
+      "size": 1325,
+      "mtime_ns": 1779559622753823900,
+      "sha256": "a636046087372c22bbbfc8a9193397f3c564f21e6318f12042f3934e423be9ca"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/20/approved_plan.json",
+      "size": 2931,
+      "mtime_ns": 1779597098879869800,
+      "sha256": "0616d80c3bb78f437a74f39cc74b94f2e66d0b2fbe27c6f313f76c9568b2e3dc"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/20/task.json",
+      "size": 1404,
+      "mtime_ns": 1779597095838819100,
+      "sha256": "25dc5908cc423acb2de5cb886a487b916302bd67466f255c2dde8b6fd841fc74"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/21/task.json",
+      "size": 1918,
+      "mtime_ns": 1779713696703173600,
+      "sha256": "47db5210b72e9ab0c05e7d3be6ce227d7c90a5a90c1870bf975181c4a9243feb"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/22/plan.json",
+      "size": 3806,
+      "mtime_ns": 1779599058239779500,
+      "sha256": "c6bbe55b66d0fe38850042f4f6350d92df53ed5159f602e447f5b35e8d492ccb"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/22/task.json",
+      "size": 1316,
+      "mtime_ns": 1779599054358769400,
+      "sha256": "873811fbc5838cb03d1344d81933886d15decb739b4a554666de27bdd67fc3ff"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/23/approved_plan.json",
+      "size": 3346,
+      "mtime_ns": 1779599062430926500,
+      "sha256": "d385c884b94cc360c74475eca64619914b75dd35e2a2406a0a9c6625ada0b929"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/23/task.json",
+      "size": 1404,
+      "mtime_ns": 1779599058353066600,
+      "sha256": "bcb8d2b4e35d4b6803b6feee29704d5eb6faa07b10114c95dfd93f0243d28f4e"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/24/task.json",
+      "size": 1834,
+      "mtime_ns": 1779599065854013200,
+      "sha256": "4b9e434236bf6563d01c9ca0496ffccc9edb0b4dad220609b13aa6b51995bc0b"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/25/plan.json",
+      "size": 3245,
+      "mtime_ns": 1779599938561738200,
+      "sha256": "8cff29f54ce2093af0d8ee112741031152b613984c901243343a141f05b553cb"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/25/task.json",
+      "size": 1278,
+      "mtime_ns": 1779599934776435500,
+      "sha256": "848709d53abe11f93e910b86fd32865968d87f81570f36c6cb148cf44d183fd6"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/26/approved_plan.json",
+      "size": 3169,
+      "mtime_ns": 1779599944011699500,
+      "sha256": "b34c3c6aea5ea79085ea31dcbdc477020f01ec00436e675ef805296201260b80"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/26/task.json",
+      "size": 1366,
+      "mtime_ns": 1779599938761999400,
+      "sha256": "86214662f5fc90a4cd151eb5016477cd1e5e9723d6fd6b07441391eeed0b879b"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/27/task.json",
+      "size": 1894,
+      "mtime_ns": 1779599948279057700,
+      "sha256": "c82521d4268528869161cf41243b7e7df158079ce4feb0e1d4f6e91578bd8f97"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/28/plan.json",
+      "size": 3050,
+      "mtime_ns": 1779602653935196000,
+      "sha256": "450a7a32e70d02bc23fb0be2054d55794e4f10c2bac37513af49c0dbceb1a7d0"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/28/task.json",
+      "size": 1420,
+      "mtime_ns": 1779602650922925600,
+      "sha256": "3518f50d409ed6568fe7181c64875db0370f761509165d330c3060f1d6915be4"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/29/approved_plan.json",
+      "size": 3334,
+      "mtime_ns": 1779602657866254400,
+      "sha256": "e69ba8b034345cccbc32f22c3018399990d8001ec355d8f492a0caef96fc5f0d"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/29/task.json",
+      "size": 1508,
+      "mtime_ns": 1779602654443177200,
+      "sha256": "d6813807c551c542efea6ec97fbffabea7991b96f31f3e9ef49aa2f1e8853c49"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/3/plan.json",
+      "size": 3139,
+      "mtime_ns": 1779557085919657700,
+      "sha256": "0cb733bf8e1a4fafe12ec1d3c1dea7acf38bceb582050eefc9a351eb34a9c217"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/3/task.json",
+      "size": 1321,
+      "mtime_ns": 1779557078878644000,
+      "sha256": "c97e230cf5767110c9589cdc50f9cfbc6464a7dfd40528b013bd7ef1f27c3f32"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/30/task.json",
+      "size": 1992,
+      "mtime_ns": 1779602657925643700,
+      "sha256": "e65e3099187759d0780c5b92e0f750350496cbd6ef05bf087e4912b653cb2c8b"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/30/worker_result.md",
+      "size": 5491,
+      "mtime_ns": 1779602665623241300,
+      "sha256": "95b64e71e268de2a246b60a745f5901757a9a17fecb02d3117de5a78157cdaf2"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/31/task.json",
+      "size": 1490,
+      "mtime_ns": 1779602672426444700,
+      "sha256": "44d5eb353be8429089e918cf14b1d58f389c85b820f1b0325d07fa854ac1c4fd"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/31/test_results.json",
+      "size": 1851,
+      "mtime_ns": 1779602674273701600,
+      "sha256": "1bd9976867887ce86d4650017fdfa992b9af1fac982efeb871db34e58bec89d4"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/32/plan.json",
+      "size": 4028,
+      "mtime_ns": 1779602987944165200,
+      "sha256": "1132b4330a4a119f0432dd09a28a9348dd17afd644ef35f42ed4e93c810ddd67"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/32/task.json",
+      "size": 1448,
+      "mtime_ns": 1779602984559239400,
+      "sha256": "283b9576aaf58e16f8bc2f5994987f71ff8b15a6e0f0b015cb830e7ff68a936b"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/33/approved_plan.json",
+      "size": 3499,
+      "mtime_ns": 1779602991424190900,
+      "sha256": "248745ee53e478a091be81299fe1c670323421cec15c6b056af5527763765d52"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/33/task.json",
+      "size": 1536,
+      "mtime_ns": 1779602988063326100,
+      "sha256": "7cf59987445385bae420bfbd36417914d4fdf4be3e871e402b97b305e9600037"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/34/task.json",
+      "size": 1892,
+      "mtime_ns": 1779718187420216100,
+      "sha256": "fa530d8e52078f461469c32fbd506b5d8e67573380ca3e816004fc8793cb9e77"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/34/worker_result.md",
+      "size": 5254,
+      "mtime_ns": 1779718731330078700,
+      "sha256": "8a21179db90a90abf2e21ee7ebb2a2044b3c44fcfa2c9ab51fea810d485f91ed"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/35/plan.json",
+      "size": 4605,
+      "mtime_ns": 1779603795504567800,
+      "sha256": "c7d62de49ff1ef508edbb921984bf625986aa54b7b572110240f0e31de470c71"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/35/task.json",
+      "size": 1316,
+      "mtime_ns": 1779603791128468300,
+      "sha256": "f6dba1867751e646ef83b4aece248709b876e50ea5f07a8e6e783105ac315db2"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/36/approved_plan.json",
+      "size": 4119,
+      "mtime_ns": 1779603799271054600,
+      "sha256": "8112d05d0bdd0eff7ed977048bbbde6f187ac03064ba440aac24505adc94bbe0"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/36/task.json",
+      "size": 1404,
+      "mtime_ns": 1779603795632016800,
+      "sha256": "8129c724f02e2bb43136e99e9d7743fd60508c437ba3719a1aeb3193234a05ad"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/37/task.json",
+      "size": 2000,
+      "mtime_ns": 1779603806154276200,
+      "sha256": "550819ff083373c91a55b34db185d6e06e6e2f19410ad3b0e9b9d14926e9d3eb"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/38/plan.json",
+      "size": 3770,
+      "mtime_ns": 1779605156847264400,
+      "sha256": "07ae51720c5788d82abeb5c3809148342bd163174fc2b3a166669b96f8fa74e3"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/38/task.json",
+      "size": 1448,
+      "mtime_ns": 1779605152448018800,
+      "sha256": "9ac3443fe3fd90c47d044a7b64ca2bcfe39fa6afd045abcfc720c86f73db9d75"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/39/approved_plan.json",
+      "size": 3490,
+      "mtime_ns": 1779605162309330900,
+      "sha256": "884b81280467222528dedfe9ef61b8168176e5d30ff802359fc78abc3ef4e976"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/39/task.json",
+      "size": 1536,
+      "mtime_ns": 1779605156951424800,
+      "sha256": "2767d2c4c73911b4344c9bcd95c13eec5c265a0f5095de9b18e73922b570881c"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/4/task.json",
+      "size": 1408,
+      "mtime_ns": 1779589489407568600,
+      "sha256": "bb233d628d290e28bb897c3db7c31dfc2e963d6bd2cfe6bd2d056be7916f5d4e"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/40/task.json",
+      "size": 2068,
+      "mtime_ns": 1779605162442510700,
+      "sha256": "ac0b125fdc518ed5ef7918c33d1e31cd77f069fe514f1e4022d6d19038937c75"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/40/worker_result.md",
+      "size": 4901,
+      "mtime_ns": 1779605658972796700,
+      "sha256": "92db4c4fa577b2f579c7b78e3718c4c2c8d97251c5b67cd1716594b36a3efc45"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/41/task.json",
+      "size": 1518,
+      "mtime_ns": 1779605663047502300,
+      "sha256": "7c37e8bfc53ad94484d27aa95b4a284b3f92b85fd06f4785dfa87d210d672c96"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/41/test_results.json",
+      "size": 1954,
+      "mtime_ns": 1779605666164754800,
+      "sha256": "ccf58b4acdcdffa8b1550fb7f44a7bd68e0eecb48b0a091ddb82efe4540668da"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/42/review_decision.json",
+      "size": 1548,
+      "mtime_ns": 1779605668197907100,
+      "sha256": "6dd76a736cccc3a04d967eaa7606469b8fecf2c9151c5daee6f02d5c01a1fa89"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/42/task.json",
+      "size": 1551,
+      "mtime_ns": 1779605666553062700,
+      "sha256": "131b3fc23fbe59733305530463a369b5461f6a48734413cbe7e05b3489f0088a"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/43/task.json",
+      "size": 2055,
+      "mtime_ns": 1779609279006801500,
+      "sha256": "2ab4b2c3630edaf8905c8325efd3fb85dd6d400dca4e7183dcd874729182ed02"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/43/test_results.json",
+      "size": 1924,
+      "mtime_ns": 1779609281522142200,
+      "sha256": "bec0db562f86d9c6d60bb15934e06a946db040b62ab58cfc48df830521d495fc"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/44/plan.json",
+      "size": 3762,
+      "mtime_ns": 1779608024768687400,
+      "sha256": "428239e8e4cfda04e9810238cd32fbb374f4f22f7b700d538bbb29d7f9ed0505"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/44/task.json",
+      "size": 1448,
+      "mtime_ns": 1779608020762083300,
+      "sha256": "bb1871237e02320c94d7766a222f74cf6d61ae654d121219e03f3c895d14d630"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/45/approved_plan.json",
+      "size": 3629,
+      "mtime_ns": 1779608029264538800,
+      "sha256": "5b181e2f3f42748be92b6777e1f0517b22571e2c5f1d576f0e5d2efae8af9ba2"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/45/task.json",
+      "size": 1536,
+      "mtime_ns": 1779608025270507600,
+      "sha256": "e2a25d9019cdbf655d4f8104963fd58aaee8e09bde7c8ae07f8d754b74231109"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/46/task.json",
+      "size": 1911,
+      "mtime_ns": 1779608029769991800,
+      "sha256": "2cfa5f270f1869d3be04e3ccba8d3b9b044819380ac6daa2fe06c51adb855a48"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/46/worker_result.md",
+      "size": 4907,
+      "mtime_ns": 1779608503501620400,
+      "sha256": "3e9867acdfb7130636b1535aad385f6f7616d55876b285a49782977a4a3642be"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/47/task.json",
+      "size": 1518,
+      "mtime_ns": 1779612113069367800,
+      "sha256": "d653e04262ddf0dea7c229dcde2b9a8ee1f1a46269564f903b6ab4fbcd15db47"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/47/test_results.json",
+      "size": 2040,
+      "mtime_ns": 1779612116393759200,
+      "sha256": "a996ff93dfbd4902a51f2f2837e753d05a6815402f9748ec0b37a9edd0912643"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/48/review_decision.json",
+      "size": 1934,
+      "mtime_ns": 1779609284717714400,
+      "sha256": "470ab73b77c9e96ea46ac101d3c833107e8ad101fd8f99b6003399c08779751e"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/48/task.json",
+      "size": 1551,
+      "mtime_ns": 1779609281982844200,
+      "sha256": "69a1f37d9030cfce556363a887152ee2e5068229defdb347127739697a6d1496"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/49/task.json",
+      "size": 3226,
+      "mtime_ns": 1779609885665968800,
+      "sha256": "38a28386c01f08168d41729b32e0607bce3c2a84f0a0eafe4180ca004dc2552d"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/49/worker_result.md",
+      "size": 5605,
+      "mtime_ns": 1779609966168266900,
+      "sha256": "aec191b2fd7bcb6144db8ea55ee44737d2397ba91b8a1510633f46c549f49928"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/5/task.json",
+      "size": 1412,
+      "mtime_ns": 1779592034863614700,
+      "sha256": "4332294a297e803601931fa5dc8e8e772a95ff53e35af861dfc9d588820e9dc6"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/50/task.json",
+      "size": 1518,
+      "mtime_ns": 1779609966239505700,
+      "sha256": "4b748ab2272aea94d88b13caeb12caf499e12c2914bc03cca79ab900d74240f0"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/50/test_results.json",
+      "size": 1931,
+      "mtime_ns": 1779609968848555000,
+      "sha256": "84f05497d1b1b2449004fe58a65520df1f2cae3852c3b10fb01ab900f1cb2e47"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/51/review_decision.json",
+      "size": 2131,
+      "mtime_ns": 1779609976799912000,
+      "sha256": "b1193e9102fec7167323d8c807d4fbc77ea7e3cb8b02a62f1b5f23419e133946"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/51/task.json",
+      "size": 1551,
+      "mtime_ns": 1779609969160532000,
+      "sha256": "6f5ce0428aed55f83495cf7296b8822c73a2783b1502e937e66b3ade9857ee95"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/52/task.json",
+      "size": 3472,
+      "mtime_ns": 1779610486221526600,
+      "sha256": "ca29e6cb57cd9dd0b8df0d18c136b1fe8d9b3fb4c9645392ea578b622925a11c"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/52/worker_result.md",
+      "size": 4907,
+      "mtime_ns": 1779610537190434600,
+      "sha256": "42e1854890abd4536e5eee241e85b2711d8a848fc1a6dd516a5e1bf5b235e3a9"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/53/task.json",
+      "size": 1518,
+      "mtime_ns": 1779610546246381300,
+      "sha256": "c98abaf5bbbae9439fb03f24aa8bc3d51b9778e4c156a996eb9edd0dae9694f4"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/53/test_results.json",
+      "size": 1979,
+      "mtime_ns": 1779610549677599000,
+      "sha256": "27bcdf3b6e4ac66c819287e4e9df86be12133a9540f81c84c25e30632f9e04d9"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/54/plan.json",
+      "size": 3920,
+      "mtime_ns": 1779613089485831600,
+      "sha256": "e4248e5beaf8b66ca27de19c233f00d1d742fd1e0eca3271bde8ffaa031e7d3e"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/54/task.json",
+      "size": 1316,
+      "mtime_ns": 1779613083085089200,
+      "sha256": "dd4031b41a8265250061297c6bf91109e210ba25f893dfbb866a9d5b9dc57ea9"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/55/approved_plan.json",
+      "size": 3793,
+      "mtime_ns": 1779613093545990800,
+      "sha256": "25aee52c1eafac6578b6a4c24d99c23745b1a3bb6acf55d92f594b07369d7605"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/55/task.json",
+      "size": 1404,
+      "mtime_ns": 1779613089584144000,
+      "sha256": "227e2f2bf020ed824c638716a39a3e64010f61c86b3303addc64ae0a0e50d86c"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/56/task.json",
+      "size": 1755,
+      "mtime_ns": 1779613093599562400,
+      "sha256": "c99f086560b9ec3ec7ad0280d5895f61ec2cf893d770567f1afa786ea9c2a512"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/56/worker_result.md",
+      "size": 4905,
+      "mtime_ns": 1779613572038513800,
+      "sha256": "846513e3364e356c6b6d6043fedacfcf08c18ccb31edbcda682772685bdade6b"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/57/task.json",
+      "size": 1386,
+      "mtime_ns": 1779613572213007200,
+      "sha256": "1b9be8d34c94df6d5aec3f5a665a102f27d5f2fdba0439a43721302b35bb94ef"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/57/test_results.json",
+      "size": 2316,
+      "mtime_ns": 1779613575790589500,
+      "sha256": "72ede7acc955703061580ab69d28c7ec8ff2bacb962d5de6e9171d807eb4d87a"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/58/review_decision.json",
+      "size": 1532,
+      "mtime_ns": 1779613582651281000,
+      "sha256": "9a86837f5eb9626a7161a7f9f45ab97f0a62b3598756384b43ce2f55c6d1707b"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/58/task.json",
+      "size": 1419,
+      "mtime_ns": 1779613576212874300,
+      "sha256": "e0f4294b8826ade85764289b3e5b60ec1b22c374fe2efe21d9023297526831ed"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/59/plan.json",
+      "size": 7741,
+      "mtime_ns": 1779614033061076700,
+      "sha256": "3a5c9f48022f250b75c9f274a7900a6989cd8a0745cef0446f98eb20e0f0399a"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/59/task.json",
+      "size": 3060,
+      "mtime_ns": 1779614027275961900,
+      "sha256": "5c301c9d4e83ace878c988d782a749cb6c74a31276a0b785d9c4c379b6da11af"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/6/plan.json",
+      "size": 3172,
+      "mtime_ns": 1779560464615377400,
+      "sha256": "8b0ec5390ea5c5f04b0681fbdd627ce337458a250ae72132f4879316b93ee2ac"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/6/task.json",
+      "size": 1325,
+      "mtime_ns": 1779560459000954400,
+      "sha256": "5d2e669de3c073fa635b5bd623a1c0690c0abeb79544e8494509dd7fecdcfdf5"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/60/task.json",
+      "size": 3148,
+      "mtime_ns": 1779614033275190000,
+      "sha256": "8afc6c3b2d33aa6e28c6f5b8845ca4d970d9e609784b54ec59655a1b4e0df2dd"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/61/plan.json",
+      "size": 6067,
+      "mtime_ns": 1779614039617663800,
+      "sha256": "e3a667aae7165a13ac98c3eb5db04f2b94a0974d9bcc3350649a76c5a9207cb3"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/61/task.json",
+      "size": 4748,
+      "mtime_ns": 1779614036768295900,
+      "sha256": "38cbeb04faccc82e3ef35932123f9b51ce30f45e8bb31bf90b47a302cdac1826"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/62/task.json",
+      "size": 4462,
+      "mtime_ns": 1779614039770396600,
+      "sha256": "5a32ace7fd49805899aa13ba70280a39cc7c8a63ef7197b75472a7ca39320945"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/63/plan.json",
+      "size": 9020,
+      "mtime_ns": 1779614048478372900,
+      "sha256": "86bf36e5dcc8065715ea216070a4f7e33de3f62d91d27575580a1bf799cc5cdb"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/63/task.json",
+      "size": 6720,
+      "mtime_ns": 1779614044270891700,
+      "sha256": "32ca1ff534c2b25048fdecff682c60795ab9748fb58f1eae451663b3978dce9a"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/64/task.json",
+      "size": 6338,
+      "mtime_ns": 1779614048794509700,
+      "sha256": "942c81754b9e11a7a962283454465497dce8d110abda0670c569298cf3f545c2"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/65/plan.json",
+      "size": 10364,
+      "mtime_ns": 1779614059739432800,
+      "sha256": "4a3c0b11be06ed2e3523a1a7ab2011f1b5804a29b517e82e0924ff6769b2a57a"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/65/task.json",
+      "size": 8773,
+      "mtime_ns": 1779614055275804700,
+      "sha256": "f527ed9e053533d41ae8ce88e32feb34f23e3fa263eaabc61858c6f1d3faece6"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/66/task.json",
+      "size": 8338,
+      "mtime_ns": 1779614059786772600,
+      "sha256": "a61c5431b0c66a0159dc9a04427cb7a4963ff768a2595bce4b86f8d3fb458d37"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/67/plan.json",
+      "size": 10778,
+      "mtime_ns": 1779614069812606200,
+      "sha256": "0a2fe304e3fe72c0ba979f48dacd245ebc13ceaecf226a7550135af4d74768c7"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/67/task.json",
+      "size": 10516,
+      "mtime_ns": 1779614065285717700,
+      "sha256": "b15a3dfe0305f6e459803bf50b80778335b89d23b38a580aa6652964e5150604"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/68/task.json",
+      "size": 10156,
+      "mtime_ns": 1779614070271770100,
+      "sha256": "7bcefef75a88e046d0f500ffd761d49ee842008534aaa3657bcbacc544eb65cb"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/69/plan.json",
+      "size": 11290,
+      "mtime_ns": 1779614078648290200,
+      "sha256": "41f757b5f02f9ed050d743fef4992ae1eecb51c6429d9017c67be1700742eb8b"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/69/task.json",
+      "size": 12724,
+      "mtime_ns": 1779614073805373800,
+      "sha256": "27260283d15619d47100334f031f942ea7a7798ac333d8cbb7e0064ad2dffaf9"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/7/task.json",
+      "size": 1412,
+      "mtime_ns": 1779592868938028100,
+      "sha256": "5191d03d36d2f777e17fcc73cf766bc67c0957ec31701b331cf790197edc28bf"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/70/task.json",
+      "size": 12286,
+      "mtime_ns": 1779614078798340400,
+      "sha256": "e8eb5453f31461daa9b643f3a855f900e196f51882a28534c904504e0cbc44dc"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/71/plan.json",
+      "size": 12979,
+      "mtime_ns": 1779614089122092300,
+      "sha256": "604aea623f6fcbef997e5f8a05a117bb7e44552a8730010d6f1bba0833c7982a"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/71/task.json",
+      "size": 14792,
+      "mtime_ns": 1779614084794089600,
+      "sha256": "59a379fd2e88ee8d67095503840defad17ddb6d3319f46a1c8f8062c373ec7aa"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/72/task.json",
+      "size": 14312,
+      "mtime_ns": 1779614089284520100,
+      "sha256": "9f8341706566aa9a67be8a11329ab04a34f3dc60789628fdbe50c5ef2ebec57e"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/73/plan.json",
+      "size": 14578,
+      "mtime_ns": 1779614099263750400,
+      "sha256": "30e10ead0a7d1b10ae5493b37b1847f42cc9befbef1e22caad26083241ba63f7"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/73/task.json",
+      "size": 16398,
+      "mtime_ns": 1779614094314537700,
+      "sha256": "ce09d1f1c348777d2f3fc9fcd5310be00639f688ba9a32208ce39885f94fac86"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/74/task.json",
+      "size": 16014,
+      "mtime_ns": 1779614099324064400,
+      "sha256": "1b4c11d2faa795cbd6e0950edc183fb2d9e3bddb4a6068fd228dc2dc3bfc8d5e"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/75/plan.json",
+      "size": 14292,
+      "mtime_ns": 1779614107724683200,
+      "sha256": "55b00a59051de50855cc6d7938d6bae0e0f3f757578cb081709db21ad0f5f258"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/75/task.json",
+      "size": 18264,
+      "mtime_ns": 1779614104329943300,
+      "sha256": "83c1a9437eee3f4beb7c2fcfdb233177bbc0c16410f857061592bce5c303f53c"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/76/task.json",
+      "size": 17890,
+      "mtime_ns": 1779614107843788500,
+      "sha256": "5f548e6c061ca3c3873174776bae371325e94f0caf56578dd7896a615061377a"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/77/plan.json",
+      "size": 16464,
+      "mtime_ns": 1779614116648250500,
+      "sha256": "234cc9a7e1964d18bd644a6a6cb5fc694be9ed838a0c41c7782ad25d7f3a0f26"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/77/task.json",
+      "size": 19594,
+      "mtime_ns": 1779614112333003800,
+      "sha256": "d682eeed831c620929935d28a1feb6bb95e0ecda6661bf304d72a53eeb6b27bc"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/78/task.json",
+      "size": 19252,
+      "mtime_ns": 1779614116844976900,
+      "sha256": "6784758127f7194ac7480c8d7039da4728acda3764f79e49e687bfe9302da59c"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/79/plan.json",
+      "size": 16508,
+      "mtime_ns": 1779614125620913800,
+      "sha256": "215b73a35d129192930a8cebfd6ee1f4aca97c51747656752bd8c858229da442"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/79/task.json",
+      "size": 21545,
+      "mtime_ns": 1779614120845273600,
+      "sha256": "4393b1cdf011833d5ff75827543a26bb64e760e78b4938642b9660cae79fc9b1"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/8/plan.json",
+      "size": 3299,
+      "mtime_ns": 1779587004343164700,
+      "sha256": "a11c7ddc7e0ed43b09cdfcd838812b475e1a305abdeb7e4f98254de192e6d740"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/8/task.json",
+      "size": 1315,
+      "mtime_ns": 1779587000330963800,
+      "sha256": "2a9d0a7bb6794f8d3193001e35c15b55a3e477d23a8ddc680bfd78b8ff6e4de2"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/80/task.json",
+      "size": 21110,
+      "mtime_ns": 1779614125840358900,
+      "sha256": "bc299c632c018ff87eebfbe2cb9f0a23677551ef9a55e45c85358eaa9ce406aa"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/81/plan.json",
+      "size": 17394,
+      "mtime_ns": 1779614136212866200,
+      "sha256": "cada9718037a95b510f0bc13f027a4a9f185c6dbf76b174673f758626576000d"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/81/task.json",
+      "size": 23298,
+      "mtime_ns": 1779614131331554400,
+      "sha256": "920b7c361c7812ce74970a0eaed8f0ed05e987a23e9cc157236799d032df25d8"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/82/task.json",
+      "size": 22902,
+      "mtime_ns": 1779614136332316700,
+      "sha256": "a66560be5fae708f77618d275db07b4b6301fd7b61270c7c75ac239cf816464a"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/83/plan.json",
+      "size": 18624,
+      "mtime_ns": 1779614146825534500,
+      "sha256": "7ab2c8ab67302b48d78ab6beecd33ba29cd32297c0196d43a9d0738b6e52d2a9"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/83/task.json",
+      "size": 25553,
+      "mtime_ns": 1779614142333771400,
+      "sha256": "7c16cb309d4f9d9a090d85382331b25f39484415ecb95d6c4c58ad896fd9314e"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/84/task.json",
+      "size": 25080,
+      "mtime_ns": 1779614147403858300,
+      "sha256": "55a23b81c5d9fe9ec6fa720a486adc322d412d69b0f8d0a793a143cff4ff4158"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/85/plan.json",
+      "size": 18271,
+      "mtime_ns": 1779614155189675200,
+      "sha256": "e24042d5c627eeeb940e62ffadbd633a31d04430d361ce96ec4757147ce76062"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/85/task.json",
+      "size": 27599,
+      "mtime_ns": 1779614151830237300,
+      "sha256": "b974d4728e57e1b8614b3b8392297a19924c63f404822ef0ab04693557c8d65e"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/86/task.json",
+      "size": 27166,
+      "mtime_ns": 1779614156336638700,
+      "sha256": "c5d1f2a527d4aed2d46d6d490225a512cb03a36d481a90ae34f298899f13d6a4"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/87/task.json",
+      "size": 1706,
+      "mtime_ns": 1779633235178804300,
+      "sha256": "12dc9401c076c13383d196d6ee8185c08db2fa21ed7262fd779109faed8da54e"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/88/task.json",
+      "size": 2928,
+      "mtime_ns": 1779624900892358700,
+      "sha256": "156deb4464a71cc65e33530e72fb21fb9d2e1e394dae9f808af5ebbe07b95d05"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/89/task.json",
+      "size": 1402,
+      "mtime_ns": 1779629333893701000,
+      "sha256": "fc2b8faa68fe621d4383097001361197b8d716b0f890f0c4da7b1349912befef"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/9/task.json",
+      "size": 1402,
+      "mtime_ns": 1779590606100730900,
+      "sha256": "aaee1fc512bd42a51beda63a3059bceaf88237d134fac1e469b18f6d4fe655fa"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/90/task.json",
+      "size": 1402,
+      "mtime_ns": 1779638146404814900,
+      "sha256": "3577236873ee5730a9396247e1e24dfc7a1590d4bc6a9c12e5225cf770fb35db"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/91/task.json",
+      "size": 1466,
+      "mtime_ns": 1779679518635904900,
+      "sha256": "0158e543b28605f4b96dbec7177cb89798df5376c17818dd1c15193e95e1a91c"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/92/task.json",
+      "size": 1466,
+      "mtime_ns": 1779683060633758300,
+      "sha256": "9e0a438ca512bbb9d8d8732cbf2f4330085a419a82f85d13e5984513d37602a6"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/97/plan.json",
+      "size": 4184,
+      "mtime_ns": 1779718775935191500,
+      "sha256": "052f3217ca4d736216f03e74f48325fcb581241100ac5d36dd1b473f1c907359"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/97/task.json",
+      "size": 1316,
+      "mtime_ns": 1779718768316894100,
+      "sha256": "03ae14a23e6d355354c7d8d032750112972e28137da17e6454c5ad0b49344a9d"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/98/task.json",
+      "size": 1518,
+      "mtime_ns": 1779718738381999700,
+      "sha256": "d3f92ae542db17451b88e3229d74d996badb477e7183ba48120a2d3c1889d891"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/98/test_results.json",
+      "size": 1744,
+      "mtime_ns": 1779718741010741400,
+      "sha256": "c62a7d437e9728336a6845a2a62671b6242d7849f2d67cf9b84a4c9834134b90"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/99/review_decision.json",
+      "size": 1750,
+      "mtime_ns": 1779718745926065000,
+      "sha256": "95ccf953f790a56f4d3f83b8f780750c383afdcdf9163fc908804f622bafd9bf"
+    },
+    {
+      "path": ".vexara/pipeline/artifacts/99/task.json",
+      "size": 1551,
+      "mtime_ns": 1779718741051867100,
+      "sha256": "d1a47a89e33f289cb8b4a3c30f602d15cc3b1a8f944d3d72573391b358bf56e9"
+    },
+    {
       "path": ".vexara/project.json",
       "size": 55,
       "mtime_ns": 1779370902530459400,
@@ -55,26 +1135,26 @@
     },
     {
       "path": "build_graph/release/bin/pty_first_edit_chunk.txt",
-      "size": 331,
-      "mtime_ns": 1779441826435478600,
-      "sha256": "4e2523c941163f30aba4b5b231d1e33325ad2f4f7842c023a793bfc4c753bf01"
+      "size": 76,
+      "mtime_ns": 1779451021794677300,
+      "sha256": "8f47898a923079252c39bcb1c82ebb86701347158d726e933c7b1b78e3f7854e"
     },
     {
       "path": "build_graph/release/bin/pty_prompt_startup_diag.txt",
-      "size": 21487,
-      "mtime_ns": 1779441826466243700,
-      "sha256": "2a9e580acd58ed3597eb57c92cba89e8156e06768960177d70944213e4cb2176"
+      "size": 4681,
+      "mtime_ns": 1779730020143388500,
+      "sha256": "046ecea50c6989101b7370bc75c940c0f479852969c874878de405493d8d0182"
     },
     {
       "path": "build_graph/release/bin/pty_startup_chunk_0.txt",
       "size": 123,
-      "mtime_ns": 1779441822857400300,
+      "mtime_ns": 1779730020044221300,
       "sha256": "cf45507eda038ab84f15844b5faf1fa537f7946c2b41338fdf7b832b7ae2305c"
     },
     {
       "path": "build_graph/release/bin/pty_startup_chunk_1.txt",
       "size": 459,
-      "mtime_ns": 1779441822878567200,
+      "mtime_ns": 1779730020093042500,
       "sha256": "5aabedbea8fb169c25a61556af75e62317f923197b5753d0740c0147c4cdc7e9"
     },
     {
@@ -82,6 +1162,12 @@
       "size": 18741,
       "mtime_ns": 1779364727604369500,
       "sha256": "5a8417ed090cd1278ac50bfe644276064bacf70042fbe8e89c57d7a0345213da"
+    },
+    {
+      "path": "build_graph/release/qt/moc_AgentChatClient.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779453552060650600,
+      "sha256": "7a63e6f3680baad60be5e0b69cf982cc6210a49af52f95f9995d20c663a16b52"
     },
     {
       "path": "build_graph/release/qt/moc_AgentRegistry.cpp.fingerprint.json",
@@ -92,8 +1178,26 @@
     {
       "path": "build_graph/release/qt/moc_AgentsPanel.cpp.fingerprint.json",
       "size": 89,
-      "mtime_ns": 1779375755445534500,
-      "sha256": "8f55a2fd0b5271c4559a85eacf5a91920d9f4ac113544dabfa2677c9bd4e0a52"
+      "mtime_ns": 1779728915999574100,
+      "sha256": "59c19c862b2ade16ea770dbc2623622295ddc80e3c811bcbd7c7c3b47dfb49c2"
+    },
+    {
+      "path": "build_graph/release/qt/moc_AiderBridge.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779714444379102000,
+      "sha256": "bced816f3ebdd3c8b901282cc3b32a043a28bc2269aeeb6849e30075801dfe13"
+    },
+    {
+      "path": "build_graph/release/qt/moc_AiderCliBackend.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779714444898268500,
+      "sha256": "cf9c1d06c76d7d4a025731063f427fa12e8c64a66392b5d2acd3e6495e8e6b40"
+    },
+    {
+      "path": "build_graph/release/qt/moc_ApiKeyValidator.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779459962719031300,
+      "sha256": "a304f2b57674cdc64d97187ea799c112fc0b54e7ad73fc9cc802c6defa049f8e"
     },
     {
       "path": "build_graph/release/qt/moc_CodeEditorWidget.cpp.fingerprint.json",
@@ -108,28 +1212,76 @@
       "sha256": "978c3cde98e4146489b7386c4c1bc729f666ef0bf8510387b5e5b84a689a3716"
     },
     {
+      "path": "build_graph/release/qt/moc_DirectorAgent.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779731508368501100,
+      "sha256": "d0022763aaf8be97acdbfc5a1695ec12ac034b4ff51429cd6bf5a126a21cd2b4"
+    },
+    {
       "path": "build_graph/release/qt/moc_FindBar.cpp.fingerprint.json",
       "size": 89,
-      "mtime_ns": 1779368459604719100,
-      "sha256": "8b342b2da3350461e7178294db1125cb0de56a0bee350da8f819592170be8773"
+      "mtime_ns": 1779451268917296600,
+      "sha256": "d9143fb770987db331cdea57786d03915f3f43662793c9c8b7e13a3617a6a4a7"
     },
     {
       "path": "build_graph/release/qt/moc_GrokBuildBridge.cpp.fingerprint.json",
       "size": 89,
-      "mtime_ns": 1779375755576586100,
-      "sha256": "f01eb0cae75e8d9d02acf8d7b03b8bff0cc49ce14ef3379358c6deb4eabfa5f0"
+      "mtime_ns": 1779714445346682800,
+      "sha256": "3fe4477a91c8a02f0455b3e574674df0647e79b65422fa0ee2fb3001d589e698"
+    },
+    {
+      "path": "build_graph/release/qt/moc_GrokBuildCliBackend.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779714445434070200,
+      "sha256": "16dc45a259a0158d14cac680ad0265be9b13038e3d0c6b268e344b3f40db64cf"
+    },
+    {
+      "path": "build_graph/release/qt/moc_HttpModelTaskBackend.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779473665294191700,
+      "sha256": "a9c0def4e057b11f7eef7cb3def9fe089c91c58464ecf98e73e58e7fa8e21bff"
+    },
+    {
+      "path": "build_graph/release/qt/moc_ITaskBackend.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779473665335228700,
+      "sha256": "bd157870b6f37fa788e8ebabbaf0f4835cd9c8898ff9544bbf75156c16ab9914"
+    },
+    {
+      "path": "build_graph/release/qt/moc_OpenAIHttpBackend.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779469606035119000,
+      "sha256": "beb590edbd1f58262cf789835f7bef99943353675dfeeb992f47136facf4e380"
+    },
+    {
+      "path": "build_graph/release/qt/moc_OpenClawBridge.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779714445522825600,
+      "sha256": "1245dcc862be6894cd26df1b551c1efa88a8c00e6966bf87497a7bc9a8a5c691"
+    },
+    {
+      "path": "build_graph/release/qt/moc_OpenClawCliBackend.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779714445621125800,
+      "sha256": "5a21c61fce852df3c02fd4c2e6d02525f4fd85085d637f265fe5feed12862323"
     },
     {
       "path": "build_graph/release/qt/moc_Orchestrator.cpp.fingerprint.json",
       "size": 89,
-      "mtime_ns": 1779375755614082800,
-      "sha256": "7680627c0aa76fbcec49ade6e49f348ac0939d4c1b3a191b269a11425b11d332"
+      "mtime_ns": 1779731508433903000,
+      "sha256": "e3f73858de454b0d3dbf8b7cc4fb171785c9e468d5bdf68099bbe6f44b8383ac"
+    },
+    {
+      "path": "build_graph/release/qt/moc_PlannerAgent.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779593276003084800,
+      "sha256": "e610b7cbdaac81abaacb62c68400b6e5ea05f83104f8789beb7af6acc05ef9de"
     },
     {
       "path": "build_graph/release/qt/moc_ProjectTreePanel.cpp.fingerprint.json",
       "size": 89,
-      "mtime_ns": 1779370715053371700,
-      "sha256": "037d340b9eb8c5cd5c58c1d84d2dc65c63132bcec3b5cf92efe5260be6090593"
+      "mtime_ns": 1779451999827721600,
+      "sha256": "3a502ceda64350288963a66999b92bab040dce7db3366f412533c89548897488"
     },
     {
       "path": "build_graph/release/qt/moc_PtyReaderThread.cpp.fingerprint.json",
@@ -138,10 +1290,28 @@
       "sha256": "c22c4165a7009326961d35df483c5bd8cbefd1dcdd72a6bf71a108912475e741"
     },
     {
+      "path": "build_graph/release/qt/moc_ReviewerAgent.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779593276034379600,
+      "sha256": "ac46eec975c7d4f49204a92559a09a782ba4da41ed9f789448ea06699f4d0afb"
+    },
+    {
       "path": "build_graph/release/qt/moc_SettingsDialog.cpp.fingerprint.json",
       "size": 89,
-      "mtime_ns": 1779375755494888600,
-      "sha256": "b7635a72e824e120cacf23f03db42ab554bbfd9f8390561ed26ccd381de54410"
+      "mtime_ns": 1779702563648792600,
+      "sha256": "827535e5e3b0fb4dec8d3af536e6efc92f79f300ffa8d699468a31e22e44cb0b"
+    },
+    {
+      "path": "build_graph/release/qt/moc_SupervisorAgent.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779593276062271700,
+      "sha256": "c22b394193c91b434d9431d1b1c4b90a6a115064d99db3deec7013dc5211edcb"
+    },
+    {
+      "path": "build_graph/release/qt/moc_TaskBackendRegistry.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779714445803199100,
+      "sha256": "ec3b9754e87dd7cb8a08e5631e7a7d82f5909bab23d4c452fc13d0731ca38d8e"
     },
     {
       "path": "build_graph/release/qt/moc_TerminalCaretOverlay.cpp.fingerprint.json",
@@ -158,8 +1328,8 @@
     {
       "path": "build_graph/release/qt/moc_TerminalPanel.cpp.fingerprint.json",
       "size": 89,
-      "mtime_ns": 1779429287649049100,
-      "sha256": "32faa10f3dd1e3c8df12edf4b4e682213d296f1c86b00946917802dbeefe19be"
+      "mtime_ns": 1779542972825260100,
+      "sha256": "a156676dc68a21d9b7a1c7bff04fa2525703c14861d525c7cff83b288e011959"
     },
     {
       "path": "build_graph/release/qt/moc_TerminalSession.cpp.fingerprint.json",
@@ -168,10 +1338,22 @@
       "sha256": "07e55dc7ee9db6ce0b0142e36d8bf6b07ed53fdb06736c97250c899ca73da763"
     },
     {
+      "path": "build_graph/release/qt/moc_TesterAgent.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779593276095774300,
+      "sha256": "a64608dabeb3cd8b0d8436ff76f415c28aa6967990d8a68a371b9b334bcc1aad"
+    },
+    {
       "path": "build_graph/release/qt/moc_VerificationRunner.cpp.fingerprint.json",
       "size": 89,
       "mtime_ns": 1779375755644500800,
       "sha256": "b14eeb6159fe49df4cd9b403ee31eb5b552aec7220db7bf432a867a8ac12d18a"
+    },
+    {
+      "path": "build_graph/release/qt/moc_WorkerAgent.cpp.fingerprint.json",
+      "size": 89,
+      "mtime_ns": 1779593276127882500,
+      "sha256": "065b1c3b94b049dd56cd8afd37fb7ec341a02b9017967f9fb3832100dbf8eb5a"
     },
     {
       "path": "build_graph/release/resolution/10_target_spec.json",
@@ -224,14 +1406,14 @@
     {
       "path": "build_plan.hash.txt",
       "size": 66,
-      "mtime_ns": 1779441092455009200,
-      "sha256": "90381993f694f3e71a06c6c256ad9f7928ba9f6406f114090665d9ebe609fb28"
+      "mtime_ns": 1779735896566155500,
+      "sha256": "7941f20c0efbac644b4a71701ce77322ae1e82b9fd26a6e91a35a779ff35cad1"
     },
     {
       "path": "build_plan.json",
-      "size": 97899,
-      "mtime_ns": 1779441092453501100,
-      "sha256": "d04cf42b63e60988cd7b0f0811fbd2bb2308f17155cab6d7590f967490f9ceb7"
+      "size": 201602,
+      "mtime_ns": 1779735896563794900,
+      "sha256": "aa148a06069b222c0eecee4a283f3a4f6d59e7e828788d7047114284f1677e84"
     },
     {
       "path": "certification/baseline_v1/baseline_manifest.json",
@@ -265,15 +1447,27 @@
     },
     {
       "path": "docs/ERROR_CORRECTION_LOG.md",
-      "size": 1464,
-      "mtime_ns": 1779380213552532000,
-      "sha256": "943f2101eca86dd50cc4720032dcc0ffaec49b0853ca8e74930950c3ffa451d3"
+      "size": 1944,
+      "mtime_ns": 1779461272292271100,
+      "sha256": "7d6045dce9ead8b5273c6aadbd082080dea2023e2491fe8252c6fda38d306982"
+    },
+    {
+      "path": "docs/GROK_BUILD_SETUP.md",
+      "size": 5739,
+      "mtime_ns": 1779516647228343100,
+      "sha256": "5e1e7bb30890c26ad3376e14711f0b3a46a16186a41f0f5971b886a6294a5fa7"
+    },
+    {
+      "path": "docs/OPENROUTER_MODEL_GUIDE.md",
+      "size": 2005,
+      "mtime_ns": 1779702520116410400,
+      "sha256": "63341713e4f3bd9d81f93ff748eb005e7ec2ccec5dd4ad41d8c3366d4663612e"
     },
     {
       "path": "docs/PROGRESS.md",
-      "size": 5225,
-      "mtime_ns": 1779380212391627200,
-      "sha256": "93a8efcb3cb830a0f66255d2c23674acc73cc9e3896d45802e9cddb0f8292f46"
+      "size": 5530,
+      "mtime_ns": 1779458351047995900,
+      "sha256": "ef1c0931140fde1623bb9eb024b33a9b26d4c4a6c6bc8dc079b323664ed5c467"
     },
     {
       "path": "docs/PROJECT_SCOPE.md",
@@ -290,86 +1484,110 @@
     {
       "path": "env_capsule.hash.txt",
       "size": 65,
-      "mtime_ns": 1779441091736057000,
-      "sha256": "36e8fe71a00f650325b3683bb196b17b41022b4595d76acfcef5152fa4831dd8"
+      "mtime_ns": 1779735895637339200,
+      "sha256": "375d47a4404d7e063ddae80e0187ec13fa16700cd7e83596c64d5337dc80aabd"
     },
     {
       "path": "env_capsule.lock.json",
       "size": 485,
-      "mtime_ns": 1779441091733538200,
-      "sha256": "a08a7670594a21e26b6942a4dceda4fda02e80e82d6906c75faa58552d895c73"
+      "mtime_ns": 1779735895634258800,
+      "sha256": "2f25d7e3fab4880507d32f3a34835962125c64d2f0a8b4a0a5a00fce735b255d"
     },
     {
       "path": "env_capsule.resolved.hash.txt",
       "size": 65,
-      "mtime_ns": 1779441091570520400,
-      "sha256": "36e8fe71a00f650325b3683bb196b17b41022b4595d76acfcef5152fa4831dd8"
+      "mtime_ns": 1779735895475983900,
+      "sha256": "375d47a4404d7e063ddae80e0187ec13fa16700cd7e83596c64d5337dc80aabd"
     },
     {
       "path": "env_capsule.resolved.json",
       "size": 485,
-      "mtime_ns": 1779441091558980900,
-      "sha256": "a08a7670594a21e26b6942a4dceda4fda02e80e82d6906c75faa58552d895c73"
+      "mtime_ns": 1779735895457652800,
+      "sha256": "2f25d7e3fab4880507d32f3a34835962125c64d2f0a8b4a0a5a00fce735b255d"
     },
     {
       "path": "ngksgraph.toml",
-      "size": 3584,
-      "mtime_ns": 1779376597045373700,
-      "sha256": "f0050c0a23d1d46fe6b4a69b3ffe412e3dd060d9a485b879578e1ce70ea5cac6"
+      "size": 3837,
+      "mtime_ns": 1779537560149623300,
+      "sha256": "d30c5a1f01ce6e8d33695dee9a67f0dc90a902e781dcc4fa795dbf486b5f3ff0"
     },
     {
       "path": "proofs/LATEST_NGKSBUILDCORE_PROOF_DIR.txt",
       "size": 145,
-      "mtime_ns": 1779441224880762000,
-      "sha256": "b8cdffb3dde73193347cdbab48380872a42a8bca45aa535ba9ca593d75ec041c"
+      "mtime_ns": 1779735907012273300,
+      "sha256": "aea9824a78840046724e96e7f60018668ec696e71a269e2e2ab5432d867cba68"
     },
     {
       "path": "proofs/latest_ngksbuildcore_run/environment.txt",
-      "size": 15558,
-      "mtime_ns": 1779441092752292200,
-      "sha256": "dccbe4ea79775b7861b999cea6eca4f97a3363f59070e46061889929202c481f"
+      "size": 15637,
+      "mtime_ns": 1779735896941504200,
+      "sha256": "631b48a7939e8419a3c90af125aa6e61440f916df1dd388cf31f914b04df3cd1"
     },
     {
       "path": "proofs/latest_ngksbuildcore_run/git_head.txt",
-      "size": 82,
-      "mtime_ns": 1779441092879344200,
-      "sha256": "1b70b2159f130abf71374bfc2a5d0eb353f52fcc2b054f2cedc5de076470658d"
+      "size": 42,
+      "mtime_ns": 1779735897174029500,
+      "sha256": "180eec60ecae0131da35b65f96c43eb6b1b611c603129be6b077ef84b08a6511"
     },
     {
       "path": "proofs/latest_ngksbuildcore_run/git_status.txt",
-      "size": 94,
-      "mtime_ns": 1779441092849832800,
-      "sha256": "bc74fa585acce3e7c207cd631c14bf50eaacba2ca8ac1e6d087dd05b91c20e2a"
+      "size": 6237,
+      "mtime_ns": 1779735897106722400,
+      "sha256": "f4ed28d638c19dc68db93c6611cc5786d7abbd68f261a65f7a47393d20ed6e50"
     },
     {
       "path": "proofs/latest_ngksbuildcore_run/inputs_env_capsule.txt",
       "size": 162,
-      "mtime_ns": 1779441092880692400,
-      "sha256": "ef8b0d07aed8a0e5bc1d67dd52fc559c4fa46ace0043cbcc967cff79662d17f1"
+      "mtime_ns": 1779735897174029500,
+      "sha256": "eb8b73ebdf731fb5e4d6f6f170f58aa303453dc0a4b7320d50594d5959f14c71"
     },
     {
       "path": "proofs/latest_ngksbuildcore_run/inputs_plan_hash.txt",
       "size": 147,
-      "mtime_ns": 1779441092881703500,
-      "sha256": "63ec6b3dc7e5548ef62860ece26e7a4b1d999f7ba0b5b7682900474141a38002"
+      "mtime_ns": 1779735897175286300,
+      "sha256": "071c24f1810ba226195cc12157023c2f3985a852a4eccc57ccc38e39883310bc"
     },
     {
       "path": "proofs/latest_ngksbuildcore_run/summary.json",
-      "size": 17513,
-      "mtime_ns": 1779441224856634600,
-      "sha256": "ca691b7075cf02c62422fedf99f6a94321b1aecc1bfcb50801bad9078a63c5f5"
+      "size": 1872,
+      "mtime_ns": 1779735906998234200,
+      "sha256": "11060e32bf031970cb8f751116148d63516a87a9bdf38fb2584ac758b61edd82"
     },
     {
       "path": "proofs/latest_ngksbuildcore_run/summary.txt",
-      "size": 240,
-      "mtime_ns": 1779441224857618200,
-      "sha256": "9a09bcd1151fb7aac553e7ed81751ec8bc9a08f17aa2439e5d5710923f4412ef"
+      "size": 239,
+      "mtime_ns": 1779735906998234200,
+      "sha256": "ddd3f23dd014208ce1ffdc1da4271b7aaa6a46351ebcebee2d56169556ac241c"
     },
     {
       "path": "proofs/latest_ngksbuildcore_run/tool_versions.txt",
       "size": 82,
-      "mtime_ns": 1779441092818168300,
+      "mtime_ns": 1779735897030709300,
       "sha256": "0e2666587836586ac864bf7cb2aadeae8401dd59c7f970f41127c8f9f43356ad"
+    },
+    {
+      "path": "tools/cancel_pending_queue.py",
+      "size": 990,
+      "mtime_ns": 1779688810202992900,
+      "sha256": "95a735b506539674d79ca68edc350f48abbdbd8b8df725848598fbf781b44f6d"
+    },
+    {
+      "path": "tools/diagnose_pipeline.ps1",
+      "size": 8430,
+      "mtime_ns": 1779600640569706100,
+      "sha256": "7f4337bb4ac110b93ca97650eb22d9e1b17776d8ae52d17471a06be62bd96bcf"
+    },
+    {
+      "path": "tools/diagnose_queue.py",
+      "size": 2706,
+      "mtime_ns": 1779600572373669700,
+      "sha256": "9dd3c94f94f0d0724f2c89a472ca7f2c430ed5e71aa88e07df69a1e8932b1427"
+    },
+    {
+      "path": "tools/reset_stuck_queue.py",
+      "size": 649,
+      "mtime_ns": 1779685969014876700,
+      "sha256": "973d7ee81d940e0fcae6e0a17a5436f6c1522856c1ed818210a31a250e9f0156"
     },
     {
       "path": "Universal Agent Ruleset.txt",

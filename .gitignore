@@ -30,3 +30,11 @@ Thumbs.db
 
 # Python venv (local tooling)
 .venv/
+.aider*
+tools/__pycache__/
+
+# Pipeline runtime (queue DB, Aider temp configs)
+.vexara/pipeline/
+
+# Local media / accidental shell output at repo root
+*.mp4

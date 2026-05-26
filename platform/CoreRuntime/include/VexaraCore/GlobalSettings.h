@@ -2,6 +2,8 @@
 
 #include "VexaraCore/GrokBuildSettings.h"
 #include "VexaraCore/ModelSettings.h"
+#include "VexaraCore/AgentExecutionSettings.h"
+#include "VexaraCore/RunTaskSettings.h"
 #include "VexaraCore/TerminalSettings.h"
 #include "VexaraCore/VerificationSettings.h"
 
@@ -16,6 +18,8 @@ public:
     TerminalSettings terminal;
     ModelSettings models;
     GrokBuildSettings grokBuild;
+    RunTaskSettings runTask;
+    AgentExecutionSettings agentExecution;
     VerificationSettings verification;
 
     bool load(QString* errorMessage = nullptr);

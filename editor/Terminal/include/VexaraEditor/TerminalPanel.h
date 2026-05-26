@@ -30,6 +30,7 @@ public:
 
     void focusCommandLine();
     void pasteFromClipboard();
+    void appendTranscriptOutput(const QString& text);
     bool containsFocusWidget(const QWidget* widget) const;
 
 signals:

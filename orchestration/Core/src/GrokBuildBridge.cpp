@@ -96,6 +96,18 @@ void GrokBuildBridge::runTask(const QString& prompt, const QString& workingDirec
     });
 }
 
+void GrokBuildBridge::cancelActiveTask()
+{
+    if (!isRunning()) {
+        return;
+    }
+    if (process_->state() != QProcess::NotRunning) {
+        process_->kill();
+        process_->waitForFinished(3000);
+    }
+    finishProcess(false, QStringLiteral("Grok Build cancelled."));
+}
+
 void GrokBuildBridge::finishProcess(bool success, const QString& summary)
 {
     emit taskFinished(success, summary);

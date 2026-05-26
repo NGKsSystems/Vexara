@@ -9,6 +9,7 @@ include_dirs = [
   "C:/Qt/6.10.2/msvc2022_64/include/QtCore",
   "C:/Qt/6.10.2/msvc2022_64/include/QtGui",
   "C:/Qt/6.10.2/msvc2022_64/include/QtWidgets",
+  "C:/Qt/6.10.2/msvc2022_64/include/QtNetwork",
   "platform/CoreRuntime/include",
   "editor/Common/include",
   "editor/Explorer/include",
@@ -19,13 +20,14 @@ include_dirs = [
   "editor/Terminal/include",
   "editor/Shell/include",
   "orchestration/Core/include",
+  "orchestration/Core/third_party/sqlite",
   "apps/Vexara/src",
 ]
 
 defines = ["UNICODE", "_UNICODE"]
 cflags = ["/utf-8", "/Zc:__cplusplus", "/permissive-", "/EHsc", "/FS"]
 ldflags = ["/SUBSYSTEM:WINDOWS", "/ENTRY:mainCRTStartup"]
-libs = ["Qt6Core", "Qt6Gui", "Qt6Widgets", "Qt6EntryPoint"]
+libs = ["Qt6Core", "Qt6Gui", "Qt6Widgets", "Qt6Network", "Qt6EntryPoint"]
 lib_dirs = ["C:/Qt/6.10.2/msvc2022_64/lib"]
 warnings = "default"
 
@@ -39,7 +41,7 @@ enabled = true
 qt_root = "C:/Qt/6.10.2/msvc2022_64"
 prefix = "C:/Qt/6.10.2/msvc2022_64"
 version = 6
-modules = ["Core", "Gui", "Widgets"]
+modules = ["Core", "Gui", "Widgets", "Network"]
 moc_path = "C:/Qt/6.10.2/msvc2022_64/bin/moc.exe"
 uic_path = "C:/Qt/6.10.2/msvc2022_64/bin/uic.exe"
 rcc_path = "C:/Qt/6.10.2/msvc2022_64/bin/rcc.exe"
@@ -49,9 +51,10 @@ include_dirs = [
   "C:/Qt/6.10.2/msvc2022_64/include/QtCore",
   "C:/Qt/6.10.2/msvc2022_64/include/QtGui",
   "C:/Qt/6.10.2/msvc2022_64/include/QtWidgets",
+  "C:/Qt/6.10.2/msvc2022_64/include/QtNetwork",
 ]
 lib_dirs = ["C:/Qt/6.10.2/msvc2022_64/lib"]
-libs = ["Qt6Core", "Qt6Gui", "Qt6Widgets"]
+libs = ["Qt6Core", "Qt6Gui", "Qt6Widgets", "Qt6Network"]
 
 [ai]
 enabled = false
@@ -109,7 +112,11 @@ links = [
 [[targets]]
 name = "VexaraOrchestration"
 type = "staticlib"
-src_glob = ["orchestration/Core/src/**/*.cpp", "orchestration/Core/include/**/*.h"]
+src_glob = [
+  "orchestration/Core/src/**/*.cpp",
+  "orchestration/Core/include/**/*.h",
+  "orchestration/Core/third_party/sqlite/sqlite3_wrapper.c",
+]
 links = ["VexaraCore"]
 
 [[targets]]

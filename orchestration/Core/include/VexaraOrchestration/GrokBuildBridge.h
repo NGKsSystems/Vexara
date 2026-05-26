@@ -20,6 +20,7 @@ public:
     bool isRunning() const;
 
     void runTask(const QString& prompt, const QString& workingDirectory);
+    void cancelActiveTask();
 
 signals:
     void taskStarted(const QString& prompt);

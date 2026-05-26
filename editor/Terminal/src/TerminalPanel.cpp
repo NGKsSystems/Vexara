@@ -181,6 +181,11 @@ void TerminalPanel::focusCommandLine()
     updateCaretOverlay();
 }
 
+void TerminalPanel::appendTranscriptOutput(const QString& text)
+{
+    appendLineBridgeOutput(text);
+}
+
 void TerminalPanel::resizeEvent(QResizeEvent* event)
 {
     QWidget::resizeEvent(event);

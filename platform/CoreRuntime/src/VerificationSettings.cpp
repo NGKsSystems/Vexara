@@ -4,6 +4,28 @@
 
 namespace VexaraCore {
 
+void VerificationSettings::normalizeCommand()
+{
+    command = command.trimmed();
+    const QString lower = command.toLower();
+
+    if (lower == QStringLiteral("build_release.bat")
+        || lower == QStringLiteral(".\\build_release.bat")
+        || lower == QStringLiteral("./build_release.bat")
+        || lower == QStringLiteral("build\\build_release.bat")
+        || lower == QStringLiteral("build/build_release.bat")) {
+        command = QStringLiteral("tools/build_release.bat");
+    }
+}
+
+void VerificationSettings::ensureDefaults()
+{
+    normalizeCommand();
+    if (command.isEmpty()) {
+        command = QStringLiteral("tools/build_release.bat");
+    }
+}
+
 bool VerificationSettings::loadFromJson(const QJsonObject& root)
 {
     const QJsonObject verification = root.value(QStringLiteral("verification")).toObject();
@@ -12,6 +34,7 @@ bool VerificationSettings::loadFromJson(const QJsonObject& root)
         command = loadedCommand;
     }
     timeoutMs = verification.value(QStringLiteral("timeout_ms")).toInt(600000);
+    ensureDefaults();
     return true;
 }
 
